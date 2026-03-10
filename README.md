@@ -38,7 +38,9 @@ Three commands to get going:
 ```
 
 Analyzes your project and scaffolds `.forge-context/` with
-starter templates and context.
+starter templates and context. This directory is committed
+to git — planning artifacts travel with your code so every
+team member shares the same context.
 
 ```
 /forge-explore
