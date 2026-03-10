@@ -120,81 +120,227 @@ Empty "Your Term" cells mean the default is used.
 Fill in only the terms you want to rename.
 ```
 
-### Step 5: Context Detection (Auto-detect Mode)
+### Step 5: Quick Scan (Auto-detect Mode)
 
-Scan the project and draft context files, then present
-findings for confirmation.
-
-**Detection sources:**
-
-| Context File | Detection Strategy |
-|-------------|-------------------|
-| `context/product.md` | README, package.json description, pyproject.toml, Cargo.toml, top-level comments |
-| `context/components.md` | Directory structure, module boundaries, package/workspace layout |
-| `context/team.md` | git shortlog (recent contributors), CODEOWNERS, commit patterns by directory |
-| `context/principles.md` | CONTRIBUTING.md, linter configs (.eslintrc, rustfmt.toml), CLAUDE.md conventions |
-| `context/git-workflow.md` | Branch naming patterns (git branch -r), merge commit presence, CI config |
+Run a quick scan to understand the project shape. This
+informs the deep discovery outline in Step 5b.
 
 **Run detection (single call to avoid parallel failures):**
 
 ```bash
 echo "=== PRODUCT FILES ===" && \
-ls README.md package.json pyproject.toml Cargo.toml 2>/dev/null; \
+ls README.md package.json pyproject.toml Cargo.toml \
+  go.mod flake.nix setup.py setup.cfg 2>/dev/null; \
 echo "=== DIRECTORY STRUCTURE ===" && \
-ls -1; \
+find . -maxdepth 2 -type d \
+  ! -path './.git*' ! -path './node_modules*' \
+  ! -path './.venv*' ! -path './target*' \
+  ! -path './__pycache__*' | sort; \
 echo "=== RECENT CONTRIBUTORS ===" && \
-git shortlog -sn --since="90 days ago" 2>/dev/null | head -10; \
+git shortlog -sn --since="90 days ago" 2>/dev/null \
+  | head -10; \
 echo "=== BRANCH PATTERNS ===" && \
 git branch -r 2>/dev/null | head -20; \
 echo "=== CONTRIBUTION GUIDELINES ===" && \
-ls CONTRIBUTING.md .eslintrc* .rustfmt.toml 2>/dev/null; \
+ls CONTRIBUTING.md .eslintrc* .rustfmt.toml \
+  .prettierrc* tsconfig.json Makefile 2>/dev/null; \
 echo "=== DONE ==="
 ```
 
-**Important:** Run these as a single Bash call, not as
-parallel calls. Parallel Bash calls cascade-fail if any
-one is denied — use semicolons to chain sequentially.
+**Important:** Run as a single Bash call, not parallel.
+Parallel Bash calls cascade-fail if any one is denied.
 
-**Presentation pattern:**
+Read the project's README and any manifest files found
+(package.json, pyproject.toml, Cargo.toml, go.mod) to
+understand the project description, dependencies, and
+structure.
 
-> "I've analyzed the project. Here's what I found:"
+### Step 5b: Present Outline and Confirm
+
+Present what context files will be created and what deep
+discovery will cover. Get user confirmation before
+investing time in the deep scan.
+
+> "I've done a quick scan. Here's what I'll create:"
 >
-> **Product:** "A CLI tool for managing reproducible
-> development environments, built in Rust."
+> **Context files I'll populate:**
 >
-> **Components:**
-> - `cli/` — Command-line interface and argument parsing
-> - `core/` — Core application logic
-> - `tests/` — Test suite
+> | File | What It Captures |
+> |------|-----------------|
+> | `context/product.md` | What this project does, its architecture, key dependencies |
+> | `context/components.md` | Modules, their responsibilities, entry points, API surfaces, key data structures |
+> | `context/team.md` | Active contributors and their areas |
+> | `context/principles.md` | Engineering principles (starter set + any found in your configs) |
+> | `context/git-workflow.md` | Branch strategy, merge approach, CI patterns |
 >
-> **Team:** 3 active contributors in the last 90 days
-> (alice — cli, bob — core, carol — tests)
+> **Deep discovery will examine:**
+> - Module boundaries and public interfaces
+> - API endpoints, routes, or CLI commands
+> - Key data structures, models, and schemas
+> - Configuration patterns and environment variables
+> - Test structure and testing patterns
+> - Error handling conventions
 >
-> **Git workflow:** Feature branches, squash merges to main
+> "This takes a few minutes. Proceed with deep
+> discovery?"
 >
-> **Principles:** Starter template (customize after init)
+> 1. Yes — full deep discovery (Recommended)
+> 2. Quick only — use what we have, skip deep scan
+> 3. Selective — choose which areas to deep-scan
+
+If user selects 2, write context files from the quick
+scan data only and proceed to Step 7.
+
+If user selects 3, present the area list and deep-scan
+only selected areas.
+
+### Step 5c: Deep Discovery
+
+Use Skill: `code-discovery` patterns to deeply explore
+the codebase. Read actual source files, not just
+directory listings.
+
+**For each major component identified in Step 5:**
+
+1. **Entry points:** Find main files, CLI definitions,
+   API route registrations, or app bootstrapping
+2. **Public interfaces:** Read exported functions,
+   classes, traits, types. Note key signatures.
+3. **Data structures:** Find models, schemas, database
+   tables, config types, serialization formats
+4. **API surface:** Find endpoints, routes, commands,
+   public methods. Note request/response shapes.
+5. **Dependencies:** Read manifest for key dependencies
+   and their roles (framework, database, auth, etc.)
+6. **Test patterns:** Find test directories, test
+   naming conventions, fixture patterns
+7. **Error handling:** Find error types, error response
+   patterns, logging conventions
+
+**Discovery approach per language:**
+
+For **Rust** projects:
+```bash
+# Find public types and traits
+grep -rn "^pub struct\|^pub enum\|^pub trait\|^pub fn" \
+  src/ --include="*.rs" | head -40; \
+# Find CLI commands or API routes
+grep -rn "command\|route\|handler\|endpoint" \
+  src/ --include="*.rs" | head -20
+```
+
+For **Python** projects:
+```bash
+# Find class definitions and key functions
+grep -rn "^class \|^def \|^async def " \
+  src/ --include="*.py" | head -40; \
+# Find API routes
+grep -rn "router\.\|@app\.\|@router\." \
+  src/ --include="*.py" | head -20
+```
+
+For **TypeScript/JavaScript** projects:
+```bash
+# Find exports and interfaces
+grep -rn "^export \|^interface \|^type " \
+  src/ --include="*.ts" --include="*.tsx" | head -40; \
+# Find route handlers
+grep -rn "router\.\|app\.\|@Controller\|@Get\|@Post" \
+  src/ --include="*.ts" | head -20
+```
+
+For **Go** projects:
+```bash
+# Find exported types and functions
+grep -rn "^type \|^func " --include="*.go" | head -40; \
+# Find HTTP handlers
+grep -rn "HandleFunc\|Handle\|http\." \
+  --include="*.go" | head -20
+```
+
+Read the key files found to understand signatures,
+data flow, and patterns. Use the Read tool to examine
+important files in detail — don't just grep.
+
+**Write `context/components.md` with depth:**
+
+For each component, document:
+- Purpose (one line)
+- Key files and entry points (with file:line refs)
+- Public API surface (endpoints, commands, exports)
+- Key data structures (with field names)
+- Dependencies on other components
+- Test location and approach
+
+**Example depth (components.md):**
+
+```markdown
+## API Server (`src/server/`)
+
+REST API for task management.
+
+### Entry Point
+- `src/server/main.py:12` — FastAPI app creation
+- `src/server/routes/` — Route definitions
+
+### API Surface
+
+| Endpoint | Handler | Purpose |
+|----------|---------|---------|
+| `GET /tasks` | `routes/tasks.py:15` | List tasks |
+| `POST /tasks` | `routes/tasks.py:42` | Create task |
+| `GET /tasks/{id}` | `routes/tasks.py:68` | Get task |
+
+### Key Data Structures
+
+```python
+class Task(BaseModel):
+    id: UUID
+    title: str
+    status: TaskStatus  # enum: pending, active, done
+    assignee: Optional[str]
+    created_at: datetime
+```
+
+### Dependencies
+- FastAPI (framework)
+- SQLAlchemy (ORM)
+- Pydantic (validation)
+
+### Tests
+- `tests/test_tasks.py` — unit tests
+- `tests/integration/` — API integration tests
+```
+
+**Write `context/product.md` with depth:**
+
+Include not just what the project does, but:
+- Architecture style (monolith, microservices, CLI, library)
+- Key dependencies and why they're used
+- Configuration approach (env vars, config files, etc.)
+- Deployment model if detectable (Docker, serverless, etc.)
+
+### Step 5d: Present Deep Discovery Results
+
+Present the populated context files for confirmation:
+
+> "Deep discovery complete. Here's what I found:"
 >
-> "Does this look right? You can edit any section, skip
-> sections, or I can re-detect specific areas."
+> **Product:** [summary]
+> **Architecture:** [monolith/services/CLI/library]
+> **Components:** [N] modules identified
+>   - [component] — [purpose] ([M] endpoints/exports)
+>   - ...
+> **Team:** [N] active contributors
+> **Git workflow:** [description]
 >
-> 1. Accept all — write context files
-> 2. Edit a section
-> 3. Re-detect a section
-> 4. Skip a section (leave empty for later)
+> "Review the full context files?"
+>
+> 1. Accept all — write and continue
+> 2. Review each file before writing
+> 3. Edit specific sections
 
 Write confirmed context to `.forge-context/context/`.
-
-**Selective mode:** User picks which areas to auto-detect
-vs provide manually:
-
-> "Which areas should I auto-detect?"
-> - [ ] Product description
-> - [ ] Components/modules
-> - [ ] Team/contributors
-> - [ ] Git workflow
-> - [ ] Engineering principles (starter template)
-
-For unchecked areas, fall through to manual questions.
 
 ### Step 6: Context Capture (Manual Mode)
 
@@ -213,60 +359,66 @@ reasonable confidence.
 Keep questions brief. Accept free-form answers and format
 them into the appropriate file.
 
-### Step 7: Starter Engineering Principles
+### Step 7: Engineering Principles
 
-When auto-detect finds no existing principles (no
-CONTRIBUTING.md, no style guides), or when user selects
-manual mode, populate `context/principles.md` with a
-curated starter template:
+Seed `context/principles.md` with a starter set and
+guide the user to customize it.
 
-```markdown
-# Engineering Principles
+**Always start with the starter principles** from the
+template (`templates/starter-principles.md`). These are
+universal engineering principles that apply broadly:
 
-> Starter principles — edit, remove, or add your own.
-> Run `/forge-retro-note` to capture refinements as
-> you work.
+- **KISS** — Prefer the simplest solution
+- **Do one thing well** — Limited scope, modular design
+- **Less is more** — Do the least to get the job done
+- **Consistency** — Reuse established idioms
+- **Good enough is not good enough** — Take pride in
+  optimal solutions
+- **Inform intrinsically** — Surface knowledge in context
 
-## KISS: Keep it simple
+**Present them to the user:**
 
-Prefer the simplest solution that works. Refactor
-toward simplicity. Small, focused components over
-large, complex ones.
+> "I've seeded your engineering principles with a
+> starter set of 6 universal principles:"
+>
+> 1. KISS — keep it simple
+> 2. Do one thing and do it well
+> 3. Less is more
+> 4. Consistency is key
+> 5. Good enough is not good enough
+> 6. Inform intrinsically
+>
+> "These are starting points, not gospel. You should
+> customize this file with principles your team
+> actually follows. Good additions might include:"
+>
+> - Testing philosophy (TDD, test pyramid, coverage)
+> - Code review expectations
+> - Performance and scalability priorities
+> - Security posture (input validation, auth patterns)
+> - API design conventions (REST, versioning, errors)
+> - Documentation requirements
+>
+> "Would you like to add any principles now?"
+>
+> 1. Yes — let me describe our principles
+> 2. No — I'll update `.forge-context/context/principles.md`
+>    later
 
-## Do one thing and do it well
+If yes, capture the user's principles and append them
+to the file below the starter set, under a section
+header like `## Team Principles`.
 
-Components with limited scope are easier to design,
-test, and maintain. Modular designs lead to cleaner
-systems.
+**When CONTRIBUTING.md or linter configs exist,** also
+extract project-specific conventions found in those
+files and add them as a `## Detected Conventions`
+section. Examples:
+- "Line length limit: 80 chars (from .eslintrc)"
+- "Commit format: conventional commits (from CONTRIBUTING.md)"
+- "Formatting: rustfmt with default settings"
 
-## Less is more
-
-Do the least you can to get the job done. You can
-always do more later. Avoid unnecessary work that
-may be thrown away.
-
-## Consistency is key
-
-Reuse well-established idioms. Reduce the learning
-curve for others. When approaches differ, converge
-on one.
-
-## Good enough is not good enough
-
-Small inefficiencies multiply. Don't poll when you
-can subscribe. Cache efficiently. Minimize
-duplication. Take pride in optimal solutions.
-
-## Inform intrinsically
-
-Users learn best in context. Surface knowledge when
-users are primed with what they are trying to do,
-not in docs they won't read.
-```
-
-When CONTRIBUTING.md or linter configs exist, the
-auto-detected principles supplement the starter template
-with project-specific conventions found in those files.
+The principles file should always note that users can
+refine it over time via `/forge-retro-note`.
 
 ### Step 8: Append CLAUDE.md Section
 
