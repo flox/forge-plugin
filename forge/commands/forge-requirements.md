@@ -5,8 +5,8 @@ Run the requirements phase for a slice.
 ## This Command's Role
 
 Identify the slice, detect if it is effort-sourced or
-from-scratch, then delegate to the `Slice Requirements`
-agent.
+from-scratch, then gather requirements through guided
+conversation.
 
 For the `approach` subcommand, delegate to the `Designer`
 agent in approach mode for lightweight design exploration.
@@ -88,35 +88,53 @@ Set `effort_path` to the effort directory.
 
 Set `effort_path` to `none`.
 
-### Step 3: Spawn Agent
+### Step 3: Gather Requirements
 
-Spawn the `Slice Requirements` agent:
+Gather requirements through guided conversation and write
+them to `{slice_path}/requirements.md`.
 
-```
-Use Task tool with:
-- subagent_type: "Slice Requirements"
-- prompt: |
-    ## Inputs
-    - slice_path: {slice_path}
-    - slice_name: {slice_name}
-    - effort_path: {path to effort or "none"}
-    - origin: {ticket/discussion link, for from-scratch}
-```
+**For effort-sourced slices:**
 
-The agent will:
-- **Effort-sourced**: Transform content from effort,
-  ask ≤3 refinement questions, suggest area owner
-  reviewers
-- **From-scratch**: Ask 3 questions (what/why/success),
-  draft requirements, optionally gather Approach section,
-  suggest area owner reviewers
+Read the linked effort's accepted slice candidate to
+extract existing content. Ask ≤3 refinement questions:
+- Any scope changes since effort review?
+- Any additional success criteria?
+- Any constraints that emerged?
+
+Draft requirements from the effort content plus
+refinements.
+
+**For from-scratch slices:**
+
+Ask the user 3 focused questions:
+
+1. "What are we building? (1-3 sentences)"
+2. "What problem does this solve or what value
+   does it deliver?"
+3. "How will we know it works? (measurable outcomes)"
+
+Draft requirements from the answers.
+
+**After drafting (both modes):**
+
+Present requirements draft to user:
+> "Here are the requirements I've captured:
+> {requirements summary}
+>
+> Would you like to:
+> 1. Accept as-is
+> 2. Edit a section
+> 3. Add more detail"
+
+Write final requirements to `requirements.md`.
 
 **About Approach section:**
-The agent asks if user wants to include it with three
-paths:
-1. Skip — leave blank, proceed to review
-2. Manual — user writes approach themselves
-3. Collaborative — use `/forge-requirements approach`
+
+After requirements are accepted, ask:
+> "Would you like to include an approach section?"
+> 1. Skip — leave blank, proceed to review
+> 2. Manual — you'll write the approach yourself
+> 3. Collaborative — use `/forge-requirements approach`
 
 ### Step 3b: Approach Mode (for `approach` subcommand)
 

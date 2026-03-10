@@ -5,7 +5,6 @@ description: >-
   and verifying zero code loss for the reviewable command
 skills:
   - commit-restructuring
-  - bash-guidelines
 tools:
   - Read
   - Write
@@ -44,7 +43,7 @@ Skill: `correction-tracking`.
 
 - Every commit must leave the codebase compilable
   (commit-restructuring — build safety)
-- Use `test -d` before directory operations (bash-guidelines)
+- Use `test -d` before directory operations
 
 ## Instincts
 

@@ -27,7 +27,7 @@ the note.
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory ops
 - Use `test -f` or `[ -f ]` before file operations
 - Check branch/worktree existence before operations

@@ -2,7 +2,6 @@
 name: Code Reviewer
 description: Reviews implementation PRs for quality, security, and conventions
 skills:
-  - code-comments
   - correction-tracking
   - code-review-structure
   - systematic-debugging
@@ -183,7 +182,7 @@ Check for:
 - [ ] No unnecessary complexity
 - [ ] Technical debt documented if introduced
 - [ ] Comments and diagrams are accurate and consistent
-      with the code they describe (Skill: `code-comments`)
+      with the code they describe
 
 ### Step 8: Test Review
 

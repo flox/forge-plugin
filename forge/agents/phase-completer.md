@@ -2,9 +2,7 @@
 name: Phase Completer
 description: Captures PR review discussions and marks phases as complete
 skills:
-  - status-reporting
   - document-update-discipline
-  - bash-guidelines
 tools:
   - Read
   - Write
@@ -63,7 +61,7 @@ Read and embody `.forge-context/principles.md`:
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory
   operations
 - Use `test -f` or `[ -f ]` before file operations
@@ -312,14 +310,14 @@ Choice: [1/2/3]
 **Option 1: All (Bulk Mode)**
 - Invoke ticket-creator agent with mode="bulk"
 - Creates all tickets from design breakdown
-- Updates tickets.md, design.md, checklist.md
+- Updates tasks.md, design.md, checklist.md
 
 **Option 2: Selective Mode**
 - Invoke ticket-creator agent with mode="selective"
 - Agent presents interactive checklist of tasks/tracks
 - User selects which to create
 - Creates selected tickets, marks others as "Pending"
-- Updates tickets.md, design.md (partial), checklist.md
+- Updates tasks.md, design.md (partial), checklist.md
 
 **Option 3: Defer**
 - Skip ticket creation for now
@@ -365,8 +363,8 @@ tickets are done.
 
 #### 7a. Read Tickets
 
-Parse `{feature_path}/tickets.md` to get list of
-implementation tickets.
+Parse `{feature_path}/tasks.md` to get list of
+implementation tasks.
 
 #### 7b. Check Ticket Status
 
@@ -380,7 +378,7 @@ gh issue view {number} --repo {owner}/{repo} \
 
 Phase completion is blocked if:
 - Any implementation ticket is not closed
-- Exception: Tickets marked as "descoped" in tickets.md
+- Exception: Tickets marked as "descoped" in tasks.md
 
 If blocked, output:
 ```
@@ -391,7 +389,7 @@ Open tickets: {count}
 - ...
 
 Please complete outstanding work or mark tickets as
-descoped in tickets.md.
+descoped in tasks.md.
 ```
 
 If all complete, proceed to commit changes.

@@ -5,7 +5,6 @@ description: >
   contracts, resource lifecycles, and boundary edge cases
   for team-based design
 skills:
-  - bash-guidelines
   - correction-tracking
 tools:
   - Read
