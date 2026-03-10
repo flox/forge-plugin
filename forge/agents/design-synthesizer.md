@@ -7,7 +7,6 @@ description: >
 skills:
   - task-breakdown
   - testing-strategy
-  - bash-guidelines
   - correction-tracking
 tools:
   - Read

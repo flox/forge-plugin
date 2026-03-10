@@ -2,7 +2,6 @@
 name: Retrospective Applier
 description: Applies pending retrospective notes and summary improvements
 skills:
-  - bash-guidelines
   - correction-tracking
   - document-update-discipline
 tools:

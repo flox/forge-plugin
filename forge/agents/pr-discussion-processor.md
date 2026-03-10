@@ -2,7 +2,6 @@
 name: PR Discussion Processor
 description: Reviews unresolved PR threads, applies conclusions, and resolves them
 skills:
-  - bash-guidelines
   - correction-tracking
   - code-review-structure
   - document-update-discipline
@@ -81,7 +80,7 @@ resolution is worse than delayed resolution.
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory
   operations
 - Use `test -f` or `[ -f ]` before file operations
@@ -413,7 +412,7 @@ Skill: `document-update-discipline`:
 3. **Ambiguous classification**: present both interpretations
    to user rather than guessing
 
-**Comments on non-standard files** (checklist.md, tickets.md,
+**Comments on non-standard files** (checklist.md, tasks.md,
 README.md, guidelines):
 - If the comment is about the file itself, apply directly
   without invoking classification

@@ -8,7 +8,6 @@ skills:
   - tdd-discipline
   - verification-before-complete
   - systematic-debugging
-  - bash-guidelines
   - correction-tracking
 tools:
   - Read

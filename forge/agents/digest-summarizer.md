@@ -4,7 +4,6 @@ description: >-
   Generates concise activity digests focused on decisions,
   phase transitions, and direction changes
 skills:
-  - bash-guidelines
   - digest
 tools:
   - Read
@@ -49,7 +48,7 @@ Read and embody `.forge-context/principles.md`:
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory ops
 - Use `test -f` or `[ -f ]` before file operations
 - Avoid commands that error on normal condition checks

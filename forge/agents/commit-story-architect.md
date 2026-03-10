@@ -5,7 +5,6 @@ description: >-
   organized by review concern for the reviewable command
 skills:
   - commit-restructuring
-  - bash-guidelines
 tools:
   - Read
   - Glob

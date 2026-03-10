@@ -13,7 +13,7 @@ improvement-focused workflow rather than a health check.
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory ops
 - Use `test -f` or `[ -f ]` before file operations
 - Avoid commands that error on normal condition checks

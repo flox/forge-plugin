@@ -19,7 +19,7 @@ ephemeral branch lifecycle, navigation, and troubleshooting.
 
 ## Bash Command Guidelines
 
-When using bash commands, follow Skill: `bash-guidelines`:
+When using bash commands:
 - Use `test -d` or `[ -d ]` before `cd` or directory ops
 - Use `test -f` or `[ -f ]` before file operations
 - Check branch existence before `git checkout`
@@ -133,29 +133,30 @@ What would you like to do?
 ```
 
 **Suggestions to surface based on state:**
-- Problem framing exists but no research: suggest
-  research-planner
-- Draft stories exist: suggest story-refiner
+- Problem framing exists but no research: suggest option 5
+  (plan research)
+- Draft stories exist: suggest option 2 (refine stories)
 - Ready stories/requirements but no candidates: suggest
-  scope-identifier
-- Problem framing complete but no score: suggest scoring
+  scope-identifier (option 7)
+- Problem framing complete but no score: suggest option 12
+  (score effort)
 
 **Route based on selection:**
 
 | Selection | Action |
 |-----------|--------|
 | 1 | Spawn `Effort Framer` agent |
-| 2 | Spawn `Story Refiner` agent |
+| 2 | Add or refine a story (guided conversation) |
 | 3 | Spawn `Requirements Gatherer` agent |
 | 4 | Gather thread info, add to effort.md |
-| 5 | Spawn `Research Planner` agent |
-| 6 | Spawn `Research Synthesizer` agent |
+| 5 | Plan user research (guided conversation) |
+| 6 | Synthesize research findings (guided conversation) |
 | 7 | Spawn `Scope Identifier` agent |
 | 8 | Create PR for pending candidates |
 | 9 | Gather decision, add to decisions.md |
 | 10 | Show health summary |
 | 11 | Create review PR for inline feedback |
-| 12 | Spawn `Effort Prioritizer` agent (score mode) |
+| 12 | Score/rescore effort (guided conversation) |
 
 ---
 

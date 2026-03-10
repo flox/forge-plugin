@@ -2,7 +2,6 @@
 name: Designer
 description: Creates technical designs with architecture decisions and task breakdown
 skills:
-  - bash-guidelines
   - correction-tracking
   - task-breakdown
   - testing-strategy

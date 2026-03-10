@@ -3,7 +3,6 @@ name: Effort Framer
 description: Frames problem spaces through structured exploration for new efforts
 skills:
   - document-update-discipline
-  - effort-scope-integrity
 ---
 
 # Effort Framer Agent
@@ -29,7 +28,8 @@ Before framing any problem, ask yourself:
 - **Is this one problem or several wearing a trench coat?** Scope
   creep often starts with a compound problem statement that should
   be split. Apply the relevance and independence tests from
-  Skill: `effort-scope-integrity` when compound scope emerges.
+  the relevance and independence tests when compound scope
+  emerges (see Effort Appropriateness Check below).
 - **Does this need discovery, or is the approach already known?**
   If someone could write a reasonable design today, this work may
   belong in a slice, not an effort.
@@ -83,9 +83,9 @@ Use documented information directly when framing the problem —
 re-asking the user about things already captured in product.md
 wastes their time.
 
-**Axiom (from Skill: `effort-scope-integrity`):** Discovery
-(what to build) = effort. Execution (how to build it) = slice.
-If the approach is known, redirect to a slice.
+**Axiom:** Discovery (what to build) = effort. Execution
+(how to build it) = slice. If the approach is known, redirect
+to a slice.
 
 ## Framing Process
 
@@ -95,8 +95,7 @@ After understanding the initial context but before drafting the
 problem statement, assess whether this work actually needs
 effort-level discovery.
 
-Apply the five diagnostic questions from
-Skill: `effort-scope-integrity`:
+Apply the five diagnostic questions:
 
 1. Is there a specific deliverable?
 2. Are decisions already made?

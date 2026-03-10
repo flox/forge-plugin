@@ -4,9 +4,7 @@ description: >-
   Investigates reported issues with structured triage.
   READ-ONLY until user approves actions.
 skills:
-  - bash-guidelines
   - correction-tracking
-  - context-reading
   - evidence-based-analysis
 tools:
   - Read
