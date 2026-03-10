@@ -1,0 +1,28 @@
+{
+  "version": "0.1.0",
+  "description": "Baseline quality scores for Forge plugin eval harness. Run eval suite and update with actual values.",
+  "baselines": {
+    "requirements": {
+      "mean": null,
+      "stddev": null,
+      "n": 0,
+      "threshold": 80.0,
+      "last_updated": null
+    },
+    "design": {
+      "mean": null,
+      "stddev": null,
+      "n": 0,
+      "threshold": 80.0,
+      "last_updated": null
+    },
+    "effort": {
+      "mean": null,
+      "stddev": null,
+      "n": 0,
+      "threshold": 80.0,
+      "last_updated": null
+    }
+  },
+  "runs": []
+}

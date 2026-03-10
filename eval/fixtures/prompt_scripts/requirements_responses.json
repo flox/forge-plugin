@@ -1,0 +1,31 @@
+{
+  "description": "Scripted responses for /forge-requirements interactive questions.",
+  "note": "Provide these answers during the requirements gathering phase.",
+  "scenario": "Rate limiter requirements",
+  "responses": [
+    {
+      "prompt_contains": "primary users",
+      "response": "API consumers — third-party developers and our own internal services."
+    },
+    {
+      "prompt_contains": "rate limit strategy",
+      "response": "Per API key, using sliding window algorithm. Default threshold: 100 requests per minute."
+    },
+    {
+      "prompt_contains": "when limit exceeded",
+      "response": "Return HTTP 429 with a Retry-After header indicating when the next request can be made."
+    },
+    {
+      "prompt_contains": "configuration",
+      "response": "Thresholds should be configurable per API key through an environment variable or config file. No hot-reload required initially."
+    },
+    {
+      "prompt_contains": "non-goals",
+      "response": "We do not need IP-based limiting, per-endpoint limits, or distributed rate limiting in the first version."
+    },
+    {
+      "prompt_contains": "success criteria",
+      "response": "Load test shows < 5ms added latency. All abuse scenarios return 429. Legitimate traffic is not blocked during normal operation."
+    }
+  ]
+}
