@@ -22,10 +22,10 @@ live alongside your code.
 
 ## Installation
 
-Install via the Claude Code plugin marketplace:
+Add the marketplace and install the plugin:
 
 ```bash
-claude plugin add-marketplace https://github.com/flox/forge-plugin
+claude plugin marketplace add flox/forge-plugin
 claude plugin install forge
 ```
 
