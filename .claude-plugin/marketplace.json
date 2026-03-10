@@ -1,0 +1,13 @@
+{
+  "name": "forge-plugin",
+  "owner": {
+    "name": "Flox"
+  },
+  "plugins": [
+    {
+      "name": "forge",
+      "source": "./forge",
+      "description": "Structured planning framework for engineering teams. Guides discovery, requirements, design, and implementation with AI-assisted workflows that produce markdown artifacts alongside your code."
+    }
+  ]
+}

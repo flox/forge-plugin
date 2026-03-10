@@ -1,0 +1,8 @@
+{
+  "name": "forge",
+  "description": "Structured planning framework for engineering teams.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Flox"
+  }
+}
