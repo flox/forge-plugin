@@ -134,24 +134,25 @@ findings for confirmation.
 | `context/principles.md` | CONTRIBUTING.md, linter configs (.eslintrc, rustfmt.toml), CLAUDE.md conventions |
 | `context/git-workflow.md` | Branch naming patterns (git branch -r), merge commit presence, CI config |
 
-**Run detection:**
+**Run detection (single call to avoid parallel failures):**
 
 ```bash
-# Product/description
-ls README.md package.json pyproject.toml Cargo.toml 2>/dev/null
-
-# Directory structure for components
-ls -1
-
-# Recent contributors
-git shortlog -sn --since="90 days ago" | head -10
-
-# Branch patterns
-git branch -r | head -20
-
-# Check for contribution guidelines
-ls CONTRIBUTING.md .eslintrc* .rustfmt.toml 2>/dev/null
+echo "=== PRODUCT FILES ===" && \
+ls README.md package.json pyproject.toml Cargo.toml 2>/dev/null; \
+echo "=== DIRECTORY STRUCTURE ===" && \
+ls -1; \
+echo "=== RECENT CONTRIBUTORS ===" && \
+git shortlog -sn --since="90 days ago" 2>/dev/null | head -10; \
+echo "=== BRANCH PATTERNS ===" && \
+git branch -r 2>/dev/null | head -20; \
+echo "=== CONTRIBUTION GUIDELINES ===" && \
+ls CONTRIBUTING.md .eslintrc* .rustfmt.toml 2>/dev/null; \
+echo "=== DONE ==="
 ```
+
+**Important:** Run these as a single Bash call, not as
+parallel calls. Parallel Bash calls cascade-fail if any
+one is denied — use semicolons to chain sequentially.
 
 **Presentation pattern:**
 
