@@ -109,14 +109,15 @@ Map Forge terms to your team's preferred vocabulary.
 When the user uses a team term, understand it as the
 Forge term. When producing output, use the team term.
 
-| Forge Term | Your Term |
-|------------|-----------|
-| effort | (e.g., epic, initiative, theme) |
-| slice | (e.g., project, feature, sprint) |
-| task | (e.g., ticket, issue, card) |
-| area owner | (e.g., domain owner, tech lead) |
+| Forge Term | What It Means | Your Term |
+|------------|---------------|-----------|
+| effort | Discovery process — exploring and understanding | |
+| slice | Delivery process — building a shippable piece | |
+| task | A unit of implementation work | |
+| area owner | Person who reviews and approves for a domain | |
 
-Remove rows where you prefer the Forge term.
+Empty "Your Term" cells mean the default is used.
+Fill in only the terms you want to rename.
 ```
 
 ### Step 5: Context Detection (Auto-detect Mode)
@@ -307,14 +308,18 @@ output, use their term instead.
 
 ### Step 9: Suggest First Retro Note for Terminology
 
-> "Forge uses terms like 'effort', 'slice', and 'task'
-> for its planning concepts. Your team may use different
-> names.
+> "Forge separates planning into two processes:
 >
-> If your team uses different terms (e.g., 'epic' instead
-> of 'effort', 'ticket' instead of 'task'), you can
-> capture these now with `/forge-retro-note` and they'll
-> appear in `.forge-context/overrides/terminology.md`.
+> - **Effort** — discovery: exploring a problem space,
+>   gathering context, identifying what to build
+> - **Slice** — delivery: building a focused, shippable
+>   piece of work with requirements, design, and
+>   implementation
+>
+> Your team may use different names for these processes.
+> If so, you can capture your preferred terms now with
+> `/forge-retro-note` and they'll appear in
+> `.forge-context/overrides/terminology.md`.
 >
 > Would you like to set up terminology overrides now?"
 > 1. Yes — run `/forge-retro-note` to capture terms
