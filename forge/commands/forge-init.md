@@ -460,22 +460,32 @@ output, use their term instead.
 
 ### Step 9: Suggest First Retro Note for Terminology
 
-> "Forge separates planning into two processes:
+> "Forge uses three core planning terms. Here's what
+> each one means so you can decide if your team uses
+> different names:
 >
-> - **Effort** — discovery: exploring a problem space,
->   gathering context, identifying what to build
-> - **Slice** — delivery: building a focused, shippable
->   piece of work with requirements, design, and
->   implementation
+> - **Effort** — the discovery process. You explore a
+>   problem space, gather user stories, research the
+>   landscape, and figure out *what* to build. Think
+>   of it as the investigation and framing phase.
 >
-> Your team may use different names for these processes.
+> - **Slice** — a specific deliverable that gets
+>   shipped. It has requirements, a design, and
+>   implementation tasks. One effort might produce
+>   several slices. Think of it as a focused, shippable
+>   unit of work.
+>
+> - **Task** — an implementation item on the way to
+>   shipping a slice. A single ticket, PR, or piece
+>   of coding work.
+>
+> Your team may already have names for these concepts.
 > If so, you can capture your preferred terms now with
 > `/forge-retro-note` and they'll appear in
-> `.forge-context/overrides/terminology.md`.
+> `.forge-context/overrides/terminology.md`."
 >
-> Would you like to set up terminology overrides now?"
-> 1. Yes — run `/forge-retro-note` to capture terms
-> 2. No — I'll use the default Forge terms
+> 1. Yes — set up terminology overrides
+> 2. No — the default terms work for us
 
 If yes, jump to `/forge-retro-note`.
 
