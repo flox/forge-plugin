@@ -1,0 +1,32 @@
+[project]
+name = "forge-plugin-eval"
+version = "0.1.0"
+description = "Evaluation harness for the Forge Claude Code plugin"
+requires-python = ">=3.11"
+dependencies = [
+    "claude-agent-sdk>=0.1.0",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "mypy"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+markers = [
+    "smoke: Tier 1 smoke tests (fast, cheap)",
+    "integration: Tier 2 integration tests (moderate cost)",
+    "e2e: Tier 3 end-to-end tests (expensive)",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true

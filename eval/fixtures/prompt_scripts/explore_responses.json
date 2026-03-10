@@ -1,0 +1,27 @@
+{
+  "description": "Scripted responses for /forge-explore interactive questions.",
+  "note": "Provide these answers when forge-explore asks for clarification.",
+  "scenario": "Rate limiting exploration",
+  "responses": [
+    {
+      "prompt_contains": "problem you're trying to solve",
+      "response": "We're getting abused by bots and some clients are making too many requests, causing our service to slow down for legitimate users. We need to protect our API."
+    },
+    {
+      "prompt_contains": "existing solutions",
+      "response": "We've looked at Redis-based rate limiting and some API gateway solutions, but we're not sure if we need something that heavy."
+    },
+    {
+      "prompt_contains": "success look like",
+      "response": "Legitimate users can make requests without hitting limits. Bot traffic is throttled. We can configure thresholds per API key. The system is easy to monitor."
+    },
+    {
+      "prompt_contains": "constraints",
+      "response": "Must be compatible with FastAPI. Should not add more than 5ms latency. Redis is already in our infrastructure."
+    },
+    {
+      "prompt_contains": "timeline",
+      "response": "This should ship within 2 weeks."
+    }
+  ]
+}

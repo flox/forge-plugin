@@ -1,0 +1,27 @@
+{
+  "description": "Scripted responses for /forge-design interactive questions.",
+  "note": "Provide these answers during the design phase.",
+  "scenario": "Rate limiter design",
+  "responses": [
+    {
+      "prompt_contains": "storage backend",
+      "response": "Redis for the token bucket counters. We already have Redis in production."
+    },
+    {
+      "prompt_contains": "middleware approach",
+      "response": "FastAPI middleware using the Starlette BaseHTTPMiddleware class. Intercept before route handlers."
+    },
+    {
+      "prompt_contains": "algorithm",
+      "response": "Sliding window with Redis sorted sets. Tracks timestamps of requests within the window."
+    },
+    {
+      "prompt_contains": "testing",
+      "response": "Unit tests for the rate limiting logic with a Redis mock. Integration tests using a test Redis instance. No end-to-end tests required."
+    },
+    {
+      "prompt_contains": "dependencies",
+      "response": "redis-py for Redis client. No other new dependencies."
+    }
+  ]
+}

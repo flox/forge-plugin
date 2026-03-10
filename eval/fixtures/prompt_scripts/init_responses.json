@@ -1,0 +1,30 @@
+{
+  "description": "Scripted responses for /forge-init interactive questions.",
+  "note": "Provide these answers in order when forge-init asks for project context.",
+  "responses": [
+    {
+      "prompt_contains": "project name",
+      "response": "Sample Eval App"
+    },
+    {
+      "prompt_contains": "describe your project",
+      "response": "A minimal FastAPI web service for testing Forge plugin evaluation runs. Provides basic REST endpoints."
+    },
+    {
+      "prompt_contains": "tech stack",
+      "response": "Python 3.11, FastAPI, uvicorn"
+    },
+    {
+      "prompt_contains": "team size",
+      "response": "1"
+    },
+    {
+      "prompt_contains": "git workflow",
+      "response": "feature branches, PR-based merges"
+    },
+    {
+      "prompt_contains": "deployment",
+      "response": "Docker containers on cloud infrastructure"
+    }
+  ]
+}

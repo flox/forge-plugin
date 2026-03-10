@@ -1,0 +1,19 @@
+{
+  "description": "Scripted responses for /forge-work interactive questions.",
+  "note": "Provide these answers when forge-work asks for slice context.",
+  "scenario": "Rate limiter slice creation",
+  "responses": [
+    {
+      "prompt_contains": "slice name",
+      "response": "api-rate-limiter"
+    },
+    {
+      "prompt_contains": "what are you building",
+      "response": "A per-API-key rate limiter middleware for FastAPI that enforces configurable request thresholds and returns 429 with retry-after header."
+    },
+    {
+      "prompt_contains": "done",
+      "response": "When we can configure rate limits per API key, the middleware integrates with FastAPI, 429 responses include retry-after, and unit tests cover the core logic."
+    }
+  ]
+}
