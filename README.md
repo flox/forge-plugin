@@ -31,26 +31,36 @@ claude plugin install forge
 
 ## Quick Start
 
-Initialize Forge in your project:
+Three commands to get going:
 
 ```
 /forge-init
 ```
 
-This scaffolds `.forge-context/` in your project with starter
-templates for efforts, slices, and team context.
-
-Then start an effort to explore a new problem:
+Analyzes your project and scaffolds `.forge-context/` with
+starter templates and context.
 
 ```
 /forge-explore
 ```
 
-Or jump straight into a delivery slice:
+Start an effort to explore a problem space and identify
+what to build.
 
 ```
-/forge-work
+/forge-work new
 ```
+
+Start a delivery slice once you know what to build.
+
+## What's Included
+
+| Type | Count | Purpose |
+|------|-------|---------|
+| Commands | 15 | Slash commands for the full workflow |
+| Agents | 18 | Subagents for requirements, design, review, and more |
+| Skills | 21 | Reusable knowledge modules |
+| Templates | 11 | Scaffold templates copied to your project |
 
 ## Commands
 
@@ -74,13 +84,17 @@ Or jump straight into a delivery slice:
 
 ## Documentation
 
-- [Getting Started](docs/getting-started.md)
-- [Workflow Overview](docs/workflow-overview.md)
-- [Command Reference](docs/command-reference.md)
+- [Getting Started](docs/getting-started.md) — Installation
+  walkthrough and first effort/slice
+- [Workflow Overview](docs/workflow-overview.md) — How efforts
+  and slices work
+- [Command Reference](docs/command-reference.md) — All commands
+  with descriptions and arguments
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add commands,
+agents, and skills.
 
 ## License
 
