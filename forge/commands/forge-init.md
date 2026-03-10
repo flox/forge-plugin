@@ -335,6 +335,13 @@ Route to the chosen command, or proceed to commit.
 
 ### Step 11: Commit Scaffold
 
+**`.forge-context/` should be tracked in git.** Planning
+artifacts — context files, requirements, designs, decision
+logs — are part of the project's knowledge base. Tracking
+them in version control means every team member gets the
+same context, planning decisions are reviewable in PRs,
+and nothing is lost when sessions end.
+
 Commit the scaffold to git:
 
 ```bash
@@ -349,7 +356,7 @@ Co-Authored-By: Claude <noreply@anthropic.com>"
 
 Report results:
 
-> "Forge planning is set up."
+> "Forge planning is set up and committed to git."
 >
 > Created:
 > - `.forge-context/context/` — 5 context files
@@ -357,7 +364,10 @@ Report results:
 > - `.forge-context/overrides/terminology.md`
 > - Updated `CLAUDE.md` with Forge command reference
 >
-> Changes committed. You're ready to start planning.
+> `.forge-context/` is tracked in git so your planning
+> artifacts travel with the code. All team members will
+> share the same context, and changes are reviewable
+> in PRs just like code.
 
 ## Subcommands
 
