@@ -25,13 +25,22 @@ This is **agentic drift** — and it compounds. Small
 inconsistencies accumulate into architectural incoherence
 that's expensive to untangle.
 
-Forge solves this by keeping requirements, design decisions,
-and architectural context in structured markdown files that
-live alongside the code. When an implementation agent starts
-work, it reads the design document and ticket brief for
-that specific task. The context isn't in someone's head or
-a chat history that expired — it's in the repo, versioned,
-reviewable, and authoritative.
+One way Forge helps with this is by keeping requirements,
+design decisions, and architectural context in structured
+markdown files that live alongside the code. When an
+implementation agent starts work, it reads the design
+document and ticket brief for that specific task. The
+context isn't in someone's head or a chat history that
+expired — it's in the repo, versioned, reviewable, and
+authoritative.
+
+Because everything is committed together, source code can
+reference its own design documents directly. A module's
+header can point to the design that shaped it. Agents
+working on the code months later can follow those
+references back to the requirements, the decision records,
+and the alternatives that were considered — not just what
+was built, but why it was built that way.
 
 ### AI works alone, teams ship together
 
@@ -58,6 +67,11 @@ discussions, and approvals. The humans who need to weigh in
 are identified automatically based on which components are
 affected. AI does the drafting; humans make the decisions.
 
+This fits into workflows teams already use. There's no new
+platform to adopt, no separate tool to log into. It's
+simple markdown files sitting alongside your code, reviewed
+in pull requests you're already doing. Nothing more.
+
 ### "It works" isn't "it's production-ready"
 
 AI can produce code that passes a quick manual test. But
@@ -65,7 +79,26 @@ production-quality code requires test coverage, design
 compliance, security review, and verification that the
 implementation actually matches what was specified.
 
-Forge enforces these disciplines structurally:
+Forge enforces these disciplines structurally, starting
+with a three-phase design progression that narrows intent
+before any code is written:
+
+1. **Design approach** — Align on the architectural
+   direction. Parallel research lenses explore options,
+   surface trade-offs, and challenge assumptions. The
+   team picks an approach before investing in details.
+2. **Full design** — Produce a detailed implementation
+   spec grounded in actual code discovery. The agent
+   reads the existing codebase to understand current
+   patterns, data structures, and conventions — then
+   designs against reality, not assumptions.
+3. **Design enrichment** — Transform the approved design
+   into zero-ambiguity specifications and per-ticket
+   briefs that guide agents to the exact implementation
+   you want. Every fact verified against the codebase.
+
+With that foundation, implementation follows with
+structural quality gates:
 
 - **TDD** — Implementation agents write a failing test
   before writing code, then make it pass, then refactor.
@@ -95,15 +128,29 @@ and the answer is gone.
 Forge preserves the full decision trail:
 
 - **Requirements** capture what and why
-- **Design documents** capture how, with alternatives
-  considered and trade-offs evaluated
+- **Design approach** captures which options were
+  considered, the trade-offs evaluated, and why the
+  team chose the direction it did
+- **Design documents** capture the detailed how,
+  grounded in code discovery
 - **Decision records** capture specific choices with
-  rationale
+  rationale — the moments where the team said "we're
+  going with option B because..."
 - **Review summaries** capture what reviewers discussed
   and what changed
 
 All of it committed to git, searchable, and linked to the
 code it produced.
+
+This makes later introspection practical. When someone
+needs to understand a piece of the system — whether it's
+a new team member, a future agent, or the original author
+six months later — they can trace from the code back to
+the design that shaped it, the requirements that motivated
+it, and the alternatives that were rejected. The reasoning
+doesn't have to be reconstructed from memory or
+reverse-engineered from the implementation. It's already
+there.
 
 ---
 
