@@ -26,6 +26,40 @@ You should see `forge` in the list.
 
 ---
 
+## Recommended: Enable Agent Teams
+
+Forge leverages parallel agents for design research
+lenses, multi-subsystem design decomposition, and
+code review. To unlock these capabilities, enable
+Claude Code's experimental agent teams:
+
+```bash
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+```
+
+Or persist it in `~/.claude/settings.json`:
+
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+**What this enables:**
+- `/design` can run parallel research lenses to
+  explore architecture options simultaneously
+- Complex designs with 3+ subsystems can use
+  team-based decomposition (architect → parallel
+  designers → synthesis)
+- Code review can use richer parallel review paths
+
+Without this setting, Forge still works — agents run
+sequentially instead of in parallel.
+
+---
+
 ## Initialize Forge in Your Project
 
 Open Claude Code in your project directory and run:

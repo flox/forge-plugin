@@ -29,6 +29,30 @@ claude plugin marketplace add flox/forge-plugin
 claude plugin install forge
 ```
 
+## Recommended: Enable Agent Teams
+
+Forge uses parallel agents for design research, code
+review, and multi-subsystem design. Enable Claude Code's
+experimental agent teams feature for the best experience:
+
+```bash
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+```
+
+Or add to your Claude Code settings (`~/.claude/settings.json`):
+
+```json
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
+```
+
+Without agent teams, Forge falls back to sequential
+sub-agents — it still works, but design exploration
+and code review run slower.
+
 ## Quick Start
 
 Three commands to get going:
