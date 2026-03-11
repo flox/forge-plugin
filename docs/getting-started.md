@@ -105,7 +105,6 @@ have one ready.
 1. Run `/forge-requirements` to write requirements
 2. Review and refine requirements
 3. Run `/forge-design` for the design phase
-   (optional — skip for simple work)
 4. Run `/forge-start-task` to implement tasks
 5. Run `/forge-phase-complete` to close each phase
 

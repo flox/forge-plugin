@@ -166,7 +166,7 @@ phase begins.
 
 ```
 1. /forge-work new
-2. /forge-requirements (gather standalone)
+2. /forge-requirements
 3. /forge-design
 4. /forge-start-task (per task)
 5. /forge-phase-complete

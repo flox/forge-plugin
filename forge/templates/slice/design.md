@@ -1,8 +1,6 @@
 # Design: [SLICE_NAME]
 
-_Note: This phase is optional. Skip for engineer
-handoffs where the approach in requirements.md is
-sufficient._
+_Run `/forge-design` to populate this document._
 
 ## Summary
 
