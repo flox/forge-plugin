@@ -25,6 +25,16 @@ When using bash commands:
 - Check branch existence before `git checkout`
 - Use exit codes for control flow, not error messages
 
+## Terminology Awareness
+
+Before producing any user-facing output, read
+`.forge-context/overrides/terminology.md`. If the user
+has mapped Forge terms to their own vocabulary, use
+their terms in all output — menus, status messages,
+suggestions, and agent prompts. Pass the mapped terms
+to any spawned agents so they also use the user's
+language.
+
 ## Context Detection
 
 Detect current state using git commands and file reads:

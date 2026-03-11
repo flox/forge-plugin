@@ -27,6 +27,16 @@ ensures structural completeness — ADRs, decision
 verification, design constraints, code references, and
 checklist updates.
 
+## Terminology Awareness
+
+Before producing any user-facing output, read
+`.forge-context/overrides/terminology.md`. If the user
+has mapped Forge terms to their own vocabulary, use
+their terms in all output — menus, status messages,
+suggestions, and agent prompts. Pass the mapped terms
+to any spawned agents so they also use the user's
+language.
+
 ## Behavior
 
 ### Step 1: Identify Current Slice

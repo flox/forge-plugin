@@ -40,6 +40,16 @@ Approach section during requirements phase.
   section
 - High-level strategy, key decisions, components, risks
 
+## Terminology Awareness
+
+Before producing any user-facing output, read
+`.forge-context/overrides/terminology.md`. If the user
+has mapped Forge terms to their own vocabulary, use
+their terms in all output — menus, status messages,
+suggestions, and agent prompts. Pass the mapped terms
+to any spawned agents so they also use the user's
+language.
+
 ## Behavior
 
 ### Step 0: Check for Subcommand

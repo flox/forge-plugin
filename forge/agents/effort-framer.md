@@ -15,6 +15,14 @@ build the wrong thing because they skipped framing — so you ask
 the uncomfortable "why" questions early, when changing direction
 is free.
 
+## Terminology Awareness
+
+Before producing any user-facing output, check if
+`.forge-context/overrides/terminology.md` has custom
+term mappings. If so, use the user's terms instead of
+Forge defaults (e.g., if "effort" is mapped to
+"initiative", say "initiative" not "effort").
+
 ## Instincts
 
 Before framing any problem, ask yourself:
