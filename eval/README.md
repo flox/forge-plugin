@@ -27,76 +27,76 @@ Three-tier evaluation pyramid:
     └─────────────────────────┘
 ```
 
-## Installation
+## Setup
+
+The eval harness uses a [Flox](https://flox.dev) environment
+that provides Python 3.11, pytest, ruff, mypy, uv, and git.
+All Python dependencies are installed automatically on first
+activate.
 
 ```bash
 cd eval/
-pip install -e ".[dev]"
+flox activate
+export ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-Or install just the runtime dependencies:
-
-```bash
-pip install claude-agent-sdk>=0.1.0 pytest>=8.0 pytest-asyncio>=0.23
-```
+On first activation, Flox creates a virtual environment and
+installs all Python dependencies via `uv`. Subsequent
+activations reuse the cached venv (reinstalls only if
+`pyproject.toml` changes).
 
 **SDK Compatibility Note:** The `claude-agent-sdk` API is still
 evolving. This harness was written against the documented
 `query()` / `ClaudeAgentOptions` / `PreToolUse` / `PostToolUse`
-interface. Verify your installed SDK version matches before running.
-Check `scorers/trace.py` for the event format this harness expects.
+interface. Verify your installed SDK version matches before
+running. Check `scorers/trace.py` for the event format this
+harness expects.
 
 ## Running Tests
 
-### Prerequisites
-
-Set your Anthropic API key:
-
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-```
-
-All tier-marked tests are automatically skipped when the key is absent.
+All tier-marked tests are automatically skipped when
+`ANTHROPIC_API_KEY` is absent.
 
 ### Tier 1: Smoke Tests (fast, ~$1 each)
 
 ```bash
-pytest eval/scenarios/smoke/ -m smoke -v
+pytest scenarios/smoke/ -m smoke -v
 ```
 
-Checks that each command triggers its expected skill. Use this as
-a quick sanity check after making changes to commands or skills.
+Checks that each command triggers its expected skill. Use this
+as a quick sanity check after making changes to commands or
+skills.
 
 ### Tier 2: Integration Tests (moderate, ~$5 each)
 
 ```bash
-pytest eval/scenarios/integration/ -m integration -v
+pytest scenarios/integration/ -m integration -v
 ```
 
-Runs phase workflows and scores output quality. Use this to verify
-that requirements, design, and explore phases produce acceptable
-documents.
+Runs phase workflows and scores output quality. Use this to
+verify that requirements, design, and explore phases produce
+acceptable documents.
 
 ### Tier 3: E2E Tests (expensive, ~$15 each)
 
 ```bash
-pytest eval/scenarios/e2e/ -m e2e -v
+pytest scenarios/e2e/ -m e2e -v
 ```
 
-Full lifecycle test. Runs init → explore → work → requirements →
-design in sequence and checks all artifacts. Run before cutting a
-release or after large changes.
+Full lifecycle test. Runs init → explore → work → requirements
+→ design in sequence and checks all artifacts. Run before
+cutting a release or after large changes.
 
 ### Run All Tiers
 
 ```bash
-pytest eval/ -v
+pytest -v
 ```
 
 ### Run Specific Test
 
 ```bash
-pytest eval/scenarios/smoke/test_init.py::test_forge_init_creates_context_directory -v
+pytest scenarios/smoke/test_init.py::test_forge_init_creates_context_directory -v
 ```
 
 ## Cost Expectations
