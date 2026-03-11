@@ -100,7 +100,7 @@ def run_session(plugin_path: Path) -> Callable:
       - max_budget_usd: float (default per tier)
       - max_turns: int (default per tier)
 
-    Returns the session result object with .messages and .trace attributes.
+    Returns a list of all messages from the session.
 
     Note: Requires ANTHROPIC_API_KEY to be set in the environment.
     The claude-agent-sdk API may evolve — verify SDK compatibility
@@ -112,7 +112,7 @@ def run_session(plugin_path: Path) -> Callable:
         prompts: list[str],
         max_budget_usd: float = 1.0,
         max_turns: int = 20,
-    ) -> object:
+    ) -> list:
         # Import here so tests that don't call run_session don't fail
         # if the SDK isn't installed.
         try:
@@ -137,13 +137,14 @@ def run_session(plugin_path: Path) -> Callable:
             cwd=str(repo_path),
         )
 
-        results = []
+        # query() returns an AsyncIterator of messages.
+        # Collect all messages across all prompts.
+        all_messages: list = []
         for prompt in prompts:
-            result = await query(prompt=prompt, options=options)
-            results.append(result)
+            async for message in query(prompt=prompt, options=options):
+                all_messages.append(message)
 
-        # Return the last result (contains the full trace)
-        return results[-1] if results else None
+        return all_messages
 
     return _run
 

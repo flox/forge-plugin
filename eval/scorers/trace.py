@@ -67,9 +67,8 @@ def extract_tool_calls(trace: Any) -> list[ToolCall]:
         return calls
 
     for event in events:
-        # Handle dict-style events (sdk or test fixtures)
+        # Handle dict-style events (test fixtures)
         if isinstance(event, dict):
-            # ContentBlockStart with tool_use
             if event.get("type") == "tool_use":
                 calls.append(
                     ToolCall(
@@ -78,7 +77,6 @@ def extract_tool_calls(trace: Any) -> list[ToolCall]:
                         raw=event,
                     )
                 )
-            # Nested content in message blocks
             content = event.get("content", [])
             if isinstance(content, list):
                 for block in content:
@@ -90,12 +88,24 @@ def extract_tool_calls(trace: Any) -> list[ToolCall]:
                                 raw=block,
                             )
                         )
-        # Handle object-style events (SDK dataclasses)
-        elif hasattr(event, "type") and event.type == "tool_use":
+        # Handle SDK message objects (AssistantMessage, etc.)
+        elif hasattr(event, "content"):
+            content = event.content
+            if isinstance(content, list):
+                for block in content:
+                    if hasattr(block, "name") and hasattr(block, "input"):
+                        calls.append(
+                            ToolCall(
+                                name=block.name,
+                                args=block.input,
+                            )
+                        )
+        # Handle bare ToolUseBlock objects
+        elif hasattr(event, "name") and hasattr(event, "input"):
             calls.append(
                 ToolCall(
-                    name=getattr(event, "name", ""),
-                    args=getattr(event, "input", {}),
+                    name=event.name,
+                    args=event.input,
                 )
             )
 
@@ -253,16 +263,14 @@ def assert_skill_triggered(trace: Any, skill_name: str) -> ToolCall:
     matching = [
         c
         for c in skill_calls
-        if c.args.get("name") == skill_name
-        or c.args.get("skill_name") == skill_name
-        # Also match on prompt text containing the skill name
-        or skill_name in str(c.args.get("prompt", ""))
+        if c.args.get("skill") == skill_name
+        or skill_name in str(c.args.get("skill", ""))
     ]
 
     assert matching, (
         f"Skill '{skill_name}' was not triggered. "
         f"Skills triggered: "
-        f"{[c.args.get('name') or c.args.get('skill_name') for c in skill_calls]}"
+        f"{[c.args.get('skill') for c in skill_calls]}"
     )
 
     return matching[0]
