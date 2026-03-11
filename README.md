@@ -79,14 +79,14 @@ what to build.
 
 Start a delivery slice once you know what to build.
 
-## What's Included
+## Documentation
 
-| Type | Count | Purpose |
-|------|-------|---------|
-| Commands | 15 | Slash commands for the full workflow |
-| Agents | 18 | Subagents for requirements, design, review, and more |
-| Skills | 21 | Reusable knowledge modules |
-| Templates | 11 | Scaffold templates copied to your project |
+- [Getting Started](docs/getting-started.md) — Installation
+  walkthrough and first effort/slice
+- [Workflow Overview](docs/workflow-overview.md) — How efforts
+  and slices work
+- [Command Reference](docs/command-reference.md) — All commands
+  with descriptions and arguments
 
 ## Commands
 
@@ -108,14 +108,14 @@ Start a delivery slice once you know what to build.
 | `/forge:reviewable` | Restructure commits for review |
 | `/forge:process-pr-discussions` | Process PR discussions |
 
-## Documentation
+## What's Included
 
-- [Getting Started](docs/getting-started.md) — Installation
-  walkthrough and first effort/slice
-- [Workflow Overview](docs/workflow-overview.md) — How efforts
-  and slices work
-- [Command Reference](docs/command-reference.md) — All commands
-  with descriptions and arguments
+| Type | Count | Purpose |
+|------|-------|---------|
+| Commands | 15 | Slash commands for the full workflow |
+| Agents | 18 | Subagents for requirements, design, review, and more |
+| Skills | 21 | Reusable knowledge modules |
+| Templates | 11 | Scaffold templates copied to your project |
 
 ## Contributing
 
