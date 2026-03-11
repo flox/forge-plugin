@@ -85,12 +85,12 @@ Skills referenced in commands (post-fix):
 
 | Skill | Referenced In | Exists |
 |-------|---------------|--------|
-| `worktree-workflow` | forge-explore.md, forge-work.md | Pass |
-| `parallel-research` | forge-implement.md, forge-design.md | Pass |
-| `forge-signature` | forge-implement.md, forge-investigate.md | Pass |
-| `implementation-review-orchestration` | forge-implement.md, forge-start-task.md | Pass |
-| `team-design` | forge-design.md | Pass |
-| `pr-discussion-orchestration` | forge-process-pr-discussions.md | Pass |
+| `worktree-workflow` | explore.md, work.md | Pass |
+| `parallel-research` | implement.md, design.md | Pass |
+| `forge-signature` | implement.md, investigate.md | Pass |
+| `implementation-review-orchestration` | implement.md, start-task.md | Pass |
+| `team-design` | design.md | Pass |
+| `pr-discussion-orchestration` | process-pr-discussions.md | Pass |
 
 **Issues Found and Fixed:**
 
@@ -106,30 +106,30 @@ All `subagent_type` references in commands:
 
 | Agent Name | File | Agent Exists |
 |------------|------|--------------|
-| `Designer` | forge-implement.md, forge-requirements.md, forge-design.md | Pass |
-| `Implementation Worker` | forge-implement.md, forge-start-task.md | Pass |
-| `Retrospective Applier` | forge-improve.md | Pass |
-| `Design Reviewer` | forge-design.md, forge-work.md | Pass |
-| `Context Auditor` | forge-audit.md | Pass |
-| `Digest Summarizer` | forge-digest.md | Pass |
-| `Phase Completer` | forge-phase-complete.md | Pass |
-| `Effort Framer` | forge-explore.md | Pass |
-| `Requirements Gatherer` | forge-explore.md | Pass |
-| `Scope Identifier` | forge-explore.md | Pass |
-| `Commit Story Architect` | forge-reviewable.md | Pass |
-| `Commit Builder` | forge-reviewable.md | Pass |
-| `PR Discussion Processor` | forge-process-pr-discussions.md | Pass |
-| `Issue Investigator` | forge-investigate.md | Pass |
+| `Designer` | implement.md, requirements.md, design.md | Pass |
+| `Implementation Worker` | implement.md, start-task.md | Pass |
+| `Retrospective Applier` | improve.md | Pass |
+| `Design Reviewer` | design.md, work.md | Pass |
+| `Context Auditor` | audit.md | Pass |
+| `Digest Summarizer` | digest.md | Pass |
+| `Phase Completer` | phase-complete.md | Pass |
+| `Effort Framer` | explore.md | Pass |
+| `Requirements Gatherer` | explore.md | Pass |
+| `Scope Identifier` | explore.md | Pass |
+| `Commit Story Architect` | reviewable.md | Pass |
+| `Commit Builder` | reviewable.md | Pass |
+| `PR Discussion Processor` | process-pr-discussions.md | Pass |
+| `Issue Investigator` | investigate.md | Pass |
 
 **Issues Found and Fixed:**
 
 | Agent Reference | File | Action |
 |-----------------|------|--------|
-| `Slice Requirements` | forge-requirements.md | Removed agent spawn, replaced with inline requirements gathering workflow |
-| `Story Refiner` | forge-explore.md (menu row 2) | Replaced with "guided conversation" description |
-| `Research Planner` | forge-explore.md (menu row 5) | Replaced with "guided conversation" description |
-| `Research Synthesizer` | forge-explore.md (menu row 6) | Replaced with "guided conversation" description |
-| `Effort Prioritizer` | forge-explore.md (menu row 12) | Replaced with "guided conversation" description |
+| `Slice Requirements` | requirements.md | Removed agent spawn, replaced with inline requirements gathering workflow |
+| `Story Refiner` | explore.md (menu row 2) | Replaced with "guided conversation" description |
+| `Research Planner` | explore.md (menu row 5) | Replaced with "guided conversation" description |
+| `Research Synthesizer` | explore.md (menu row 6) | Replaced with "guided conversation" description |
+| `Effort Prioritizer` | explore.md (menu row 12) | Replaced with "guided conversation" description |
 
 ### Skills → Skills
 
@@ -209,11 +209,11 @@ with `name:` and `description:` fields.
 | Templates | 11 | 11 |
 
 ### Command List (15)
-forge-audit, forge-design, forge-digest, forge-explore,
-forge-implement, forge-improve, forge-init, forge-investigate,
-forge-phase-complete, forge-process-pr-discussions,
-forge-requirements, forge-retro-note, forge-reviewable,
-forge-start-task, forge-work
+audit, design, digest, explore,
+implement, improve, init, investigate,
+phase-complete, process-pr-discussions,
+requirements, retro-note, reviewable,
+start-task, work
 
 ### Skills List (21)
 commit-restructuring, correction-tracking, code-discovery,
@@ -254,8 +254,8 @@ overrides/terminology.md, starter-principles.md
 | 6 | Cross-ref | issue-investigator.md | `context-reading` in `skills:` frontmatter (not in plugin) | Removed from frontmatter |
 | 7 | Cross-ref | effort-framer.md, requirements-gatherer.md | `effort-scope-integrity` in `skills:` frontmatter (not in plugin) | Removed from frontmatter; inlined key axioms |
 | 8 | Cross-ref | code-reviewer.md | `code-comments` in `skills:` frontmatter (not in plugin) | Removed from frontmatter and body ref |
-| 9 | Agent ref | forge-requirements.md | Spawns `Slice Requirements` agent that doesn't exist | Replaced with inline requirements gathering workflow |
-| 10 | Agent ref | forge-explore.md | Menu rows 2, 5, 6, 12 reference missing agents | Replaced with "guided conversation" descriptions |
+| 9 | Agent ref | requirements.md | Spawns `Slice Requirements` agent that doesn't exist | Replaced with inline requirements gathering workflow |
+| 10 | Agent ref | explore.md | Menu rows 2, 5, 6, 12 reference missing agents | Replaced with "guided conversation" descriptions |
 
 ---
 

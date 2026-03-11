@@ -21,7 +21,7 @@ are reviewed, then spawned as slices in
 ## Pending Review
 
 _Candidates under review. Once approved, move to
-Accepted. From there, spawn via `/forge-work`._
+Accepted. From there, spawn via `/work`._
 
 ### SL-001: [Slice Name]
 
@@ -48,7 +48,7 @@ Accepted. From there, spawn via `/forge-work`._
 ## Accepted (Ready to Spawn)
 
 _Reviewed and approved, ready to spawn via
-`/forge-work new`._
+`/work new`._
 
 <!--
 ### SL-NNN: [Slice Name]

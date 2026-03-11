@@ -1,4 +1,4 @@
-# /forge-process-pr-discussions
+# /process-pr-discussions
 
 Process unresolved PR discussions by applying conclusions
 and recording decisions.
@@ -126,7 +126,7 @@ Display the Phase 3 agent's output:
 ## Example Interaction
 
 ```
-User: /forge-process-pr-discussions
+User: /process-pr-discussions
 
 Agent: Searching for PR on current branch...
        Found PR #42: Design Review: CUDA Build Support

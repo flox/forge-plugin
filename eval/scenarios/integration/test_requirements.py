@@ -1,6 +1,6 @@
 """Tier 2 integration tests: requirements phase output quality.
 
-Runs /forge-init + /forge-work new + /forge-requirements against a
+Runs /init + /work new + /requirements against a
 standard scenario and scores the output requirements.md against the
 Forge rubric. Tests pass when quality score >= 80%.
 
@@ -56,9 +56,9 @@ async def test_requirements_quality_score(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -69,7 +69,7 @@ async def test_requirements_quality_score(
     candidates = list(req_file.rglob("requirements.md"))
 
     assert candidates, (
-        "No requirements.md found after running /forge-requirements. "
+        "No requirements.md found after running /requirements. "
         f"Contents of .forge-context: "
         f"{list((disposable_repo / '.forge-context').rglob('*'))}"
     )
@@ -99,9 +99,9 @@ async def test_requirements_has_user_stories(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -137,9 +137,9 @@ async def test_requirements_has_acceptance_criteria(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
         ],
         max_budget_usd=5.0,
         max_turns=50,

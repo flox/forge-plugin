@@ -1,4 +1,4 @@
-# /forge-start-task
+# /start-task
 
 Begin work on implementation task(s) using git worktrees
 for parallel development.
@@ -206,7 +206,7 @@ with branches named `{slice-slug}/{task-num}-{short-desc}`.
 ### Single Task
 
 ```
-User: /forge-start-task --task 101
+User: /start-task --task 101
 
 Agent: Starting task #101: Core SBOM generation logic
 
@@ -229,7 +229,7 @@ Agent: Task #101 complete:
 ### Parallel Tracks
 
 ```
-User: /forge-start-task --parallel
+User: /start-task --parallel
 
 Agent: Starting parallel implementation across tracks...
 

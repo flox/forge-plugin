@@ -3,7 +3,7 @@ name: pr-discussion-orchestration
 type: orchestration
 description: >-
   This skill should be used when
-  /forge-process-pr-discussions needs to orchestrate its
+  /process-pr-discussions needs to orchestrate its
   three-phase pipeline — analyze unresolved threads,
   delegate changes to specialized agents, then resolve
   threads. Do not use outside the PR discussion
@@ -18,7 +18,7 @@ analysis and change application happens inside sub-agents.
 
 ## When to Use
 
-The `/forge-process-pr-discussions` command loads this skill
+The `/process-pr-discussions` command loads this skill
 to orchestrate the PR discussion processor and any delegate
 agents it spawns.
 

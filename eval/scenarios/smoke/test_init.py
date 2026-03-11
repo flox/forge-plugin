@@ -1,4 +1,4 @@
-"""Tier 1 smoke tests: /forge-init onboarding.
+"""Tier 1 smoke tests: /init onboarding.
 
 Verifies that the init command creates the expected .forge-context/
 directory structure and scaffolds the required context files.
@@ -28,7 +28,7 @@ async def test_forge_init_creates_context_directory(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /forge-init creates .forge-context/ directory structure.
+    """Verify /init creates .forge-context/ directory structure.
 
     The init command should scaffold at minimum:
     - .forge-context/
@@ -38,7 +38,7 @@ async def test_forge_init_creates_context_directory(
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/forge-init"],
+        prompts=["/init"],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -55,14 +55,14 @@ async def test_forge_init_creates_context_files(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /forge-init writes context files during onboarding.
+    """Verify /init writes context files during onboarding.
 
     After init, at least a product.md or similar context file
     should exist in .forge-context/context/.
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/forge-init"],
+        prompts=["/init"],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -79,14 +79,14 @@ async def test_forge_init_copies_templates(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /forge-init copies templates into the project.
+    """Verify /init copies templates into the project.
 
     Templates should land in .forge-context/templates/ so users
     have scaffold documents to start from.
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/forge-init"],
+        prompts=["/init"],
         max_budget_usd=1.0,
         max_turns=20,
     )

@@ -1,4 +1,4 @@
-# /forge-implement
+# /implement
 
 Ad-hoc code changes without slice ceremony.
 
@@ -165,7 +165,7 @@ After implementation and code review:
 ## Example Interaction
 
 ```
-User: /forge-implement add a new catalog endpoint
+User: /implement add a new catalog endpoint
       for anonymous users
 
 Agent: [spawns designer in adhoc mode]

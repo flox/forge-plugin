@@ -4,7 +4,7 @@ description: >-
   This skill should be used when "restructuring commits",
   "organizing PR history", "making commits reviewable",
   or planning how to split work into atomic commits. The
-  intellectual foundation for /forge-reviewable. Do not
+  intellectual foundation for /reviewable. Do not
   use for writing commit messages (see git workflow
   guideline).
 ---
@@ -13,7 +13,7 @@ description: >-
 
 How to transform development history into commits that reviewers
 can evaluate efficiently. These principles guide both manual
-commit organization and the `/forge-reviewable` automated
+commit organization and the `/reviewable` automated
 workflow.
 
 ## When to Reference
@@ -21,7 +21,7 @@ workflow.
 - Before restructuring commits for a PR
 - When planning how to organize work into commits
 - When reviewing whether a commit sequence tells a clear story
-- When the `/forge-reviewable` command needs guidance
+- When the `/reviewable` command needs guidance
 
 ## Core Principle: Organize by Review Concern
 

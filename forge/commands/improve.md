@@ -1,4 +1,4 @@
-# /forge-improve
+# /improve
 
 Apply retrospective improvements to Forge workflows and
 context.
@@ -21,7 +21,7 @@ When using bash commands:
 ## Usage
 
 ```
-/forge-improve [scope] [options]
+/improve [scope] [options]
 ```
 
 ### Scope
@@ -59,7 +59,7 @@ If nothing found:
 >
 > "All retrospective notes have been processed."
 >
-> "Run `/forge-retro-note` to capture new observations."
+> "Run `/retro-note` to capture new observations."
 
 ### Step 2: Spawn Applier Agent
 
@@ -117,7 +117,7 @@ Commits: {count}
 
 ### Process All Pending
 ```
-User: /forge-improve
+User: /improve
 
 Agent: Found 3 pending improvements...
 
@@ -150,12 +150,12 @@ Commits: 2
 
 ### Nothing Pending
 ```
-User: /forge-improve
+User: /improve
 
 Agent: No pending improvements found.
 
        All retrospective notes have been processed.
-       Run `/forge-retro-note` after encountering issues
+       Run `/retro-note` after encountering issues
        to capture new observations.
 ```
 
@@ -173,8 +173,8 @@ Retrospective improvements typically update:
 
 | Command | Purpose |
 |---------|---------|
-| `/forge-retro-note` | Capture a retrospective note |
-| `/forge-audit` | Run health checks |
+| `/retro-note` | Capture a retrospective note |
+| `/audit` | Run health checks |
 
 ## CI/Automation Mode
 
@@ -185,5 +185,5 @@ When running with `--auto`:
 
 Example:
 ```bash
-/forge-improve --auto
+/improve --auto
 ```

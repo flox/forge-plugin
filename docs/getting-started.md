@@ -31,13 +31,13 @@ You should see `forge` in the list.
 Open Claude Code in your project directory and run:
 
 ```
-/forge-init
+/init
 ```
 
 Forge will analyze your project and prompt you to
 confirm its findings before creating any files.
 
-**What `/forge-init` creates:**
+**What `/init` creates:**
 
 ```
 .forge-context/
@@ -68,7 +68,7 @@ explore a problem before committing to a solution.
 Start an effort:
 
 ```
-/forge-explore
+/explore
 ```
 
 Forge will ask what you're trying to understand and
@@ -78,7 +78,7 @@ your understanding evolves.
 
 **Typical effort workflow:**
 
-1. Run `/forge-explore` to create the effort
+1. Run `/explore` to create the effort
 2. Work through the problem space in `effort.md`
 3. Capture open questions as threads
 4. Identify slice candidates in `slices.md`
@@ -94,7 +94,7 @@ and ship focused work.
 Start a new slice directly:
 
 ```
-/forge-work new
+/work new
 ```
 
 Or spawn a slice from an effort candidate once you
@@ -102,11 +102,11 @@ have one ready.
 
 **Typical slice workflow:**
 
-1. Run `/forge-requirements` to write requirements
+1. Run `/requirements` to write requirements
 2. Review and refine requirements
-3. Run `/forge-design` for the design phase
-4. Run `/forge-start-task` to implement tasks
-5. Run `/forge-phase-complete` to close each phase
+3. Run `/design` for the design phase
+4. Run `/start-task` to implement tasks
+5. Run `/phase-complete` to close each phase
 
 ---
 
@@ -114,17 +114,17 @@ have one ready.
 
 | Command | What it does |
 |---------|-------------|
-| `/forge-init` | Set up Forge in your project |
-| `/forge-explore` | Start or continue an effort |
-| `/forge-work` | Start or continue a slice |
-| `/forge-requirements` | Run requirements gathering |
-| `/forge-design` | Run the design phase |
-| `/forge-start-task` | Start implementation tasks |
-| `/forge-retro-note` | Capture a process observation |
-| `/forge-improve` | Apply retro notes as improvements |
-| `/forge-phase-complete` | Complete a slice phase |
-| `/forge-audit` | Health check work and context |
-| `/forge-digest` | Summarize recent activity |
+| `/init` | Set up Forge in your project |
+| `/explore` | Start or continue an effort |
+| `/work` | Start or continue a slice |
+| `/requirements` | Run requirements gathering |
+| `/design` | Run the design phase |
+| `/start-task` | Start implementation tasks |
+| `/retro-note` | Capture a process observation |
+| `/improve` | Apply retro notes as improvements |
+| `/phase-complete` | Complete a slice phase |
+| `/audit` | Health check work and context |
+| `/digest` | Summarize recent activity |
 
 For full command details, see
 [Command Reference](command-reference.md).
@@ -138,7 +138,7 @@ If your team uses different names for things (e.g.,
 of "slices"), tell Forge:
 
 ```
-/forge-retro-note
+/retro-note
 ```
 
 > "We call efforts 'initiatives' on this team."
@@ -146,7 +146,7 @@ of "slices"), tell Forge:
 Then run:
 
 ```
-/forge-improve
+/improve
 ```
 
 Forge will update `.forge-context/overrides/terminology.md`
@@ -161,5 +161,5 @@ also edit the terminology file directly.
   understand the effort/slice lifecycle
 - See [Command Reference](command-reference.md) for
   all available commands
-- Run `/forge-audit` anytime to check if your context
+- Run `/audit` anytime to check if your context
   files are accurate

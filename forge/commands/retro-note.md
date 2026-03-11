@@ -1,4 +1,4 @@
-# /forge-retro-note
+# /retro-note
 
 Capture a retrospective note about Forge workflows, tools,
 or processes.
@@ -19,7 +19,7 @@ development work. Automatically routes notes based on
 ## Usage
 
 ```
-/forge-retro-note
+/retro-note
 ```
 
 No arguments — the command will interactively capture
@@ -186,7 +186,7 @@ Show confirmation:
 >
 > "Note #{N}: {title}"
 >
-> "This note will be processed via `/forge-improve`
+> "This note will be processed via `/improve`
 > for workflow improvements."
 >
 > "Location: {file_path}"
@@ -198,7 +198,7 @@ If note was committed, offer to push and PR if needed.
 ### Error/Issue Note
 
 ```
-User: /forge-retro-note
+User: /retro-note
 
 Agent: No active slice/effort context detected.
        Adding note to .forge-context/artifacts/.
@@ -229,14 +229,14 @@ Agent: Retrospective note added.
 ### Simple Observation
 
 ```
-User: /forge-retro-note
+User: /retro-note
 
 Agent: Detected active slice: Environment SBOMs
 
        What happened?
 
 User: Had to look through multiple files to find
-      which /forge-* command to use
+      which command to use
 
 Agent: What change might improve this?
 
@@ -254,5 +254,5 @@ Agent: Retrospective note added to Environment SBOMs.
 
 | Command | Purpose |
 |---------|---------|
-| `/forge-improve` | Process and apply retrospective notes |
-| `/forge-audit` | Check for unprocessed notes |
+| `/improve` | Process and apply retrospective notes |
+| `/audit` | Check for unprocessed notes |

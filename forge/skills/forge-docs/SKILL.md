@@ -45,7 +45,7 @@ Read from `${CLAUDE_PLUGIN_ROOT}/../docs/`:
 
 4. **Offer to run the appropriate command**
    End with a suggestion: "Would you like me to run
-   `/forge-work new` to start a new slice?"
+   `/work new` to start a new slice?"
 
 ## Common Questions and Sources
 
@@ -57,7 +57,7 @@ Read from `${CLAUDE_PLUGIN_ROOT}/../docs/`:
 | What is a slice | `workflow-overview.md` |
 | How slices and efforts relate | `workflow-overview.md` |
 | Available commands | `command-reference.md` |
-| How to use `/forge-work` | `command-reference.md` |
+| How to use `/work` | `command-reference.md` |
 | How to start a task | `command-reference.md` |
 | How retro notes work | `workflow-overview.md` |
 
@@ -65,5 +65,5 @@ Read from `${CLAUDE_PLUGIN_ROOT}/../docs/`:
 
 If the docs directory doesn't exist or the file is empty,
 explain that Forge is set up but documentation hasn't been
-initialized, and offer to run `/forge-init` to set up the
+initialized, and offer to run `/init` to set up the
 project including documentation.
