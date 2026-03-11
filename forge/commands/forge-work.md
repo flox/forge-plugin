@@ -229,10 +229,10 @@ REPO_ROOT=$(git rev-parse --show-toplevel)
 SUFFIX=$(head /dev/urandom | tr -dc 'a-z0-9' | head -c 4)
 BRANCH="slice/${slug}-requirements-${SUFFIX}"
 
-# Create branch and worktree
-git checkout -b "$BRANCH" origin/main 2>/dev/null || \
-  git checkout -b "$BRANCH" main
-git worktree add "${REPO_ROOT}/_worktrees/${slug}" "$BRANCH"
+# Create worktree with new branch from main (single command)
+mkdir -p "${REPO_ROOT}/_worktrees"
+git worktree add "${REPO_ROOT}/_worktrees/${slug}" \
+  -b "$BRANCH" origin/main
 
 # Create slice directory
 SLICE_DIR="${REPO_ROOT}/_worktrees/${slug}/.forge-context/slices/${YYYYMM}-${slug}"
