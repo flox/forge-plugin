@@ -1,4 +1,4 @@
-# /forge-investigate
+# /investigate
 
 Ad-hoc issue triage and investigation.
 
@@ -136,7 +136,7 @@ posts.
 ## Example Interactions
 
 ```
-User: /forge-investigate
+User: /investigate
 
 Agent: What issue are you investigating?
 

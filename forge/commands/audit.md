@@ -1,4 +1,4 @@
-# /forge-audit
+# /audit
 
 Run health checks across your Forge planning setup.
 
@@ -18,7 +18,7 @@ When using bash commands:
 ## Usage
 
 ```
-/forge-audit [type] [options]
+/audit [type] [options]
 ```
 
 ### Audit Types
@@ -124,7 +124,7 @@ All audit artifacts go to `.forge-context/artifacts/`:
 
 ### Interactive
 ```
-User: /forge-audit
+User: /audit
 
 Agent: Which audits do you want to run?
        - Workflow
@@ -143,7 +143,7 @@ WORK HEALTH AUDIT REPORT
 
 ### Specific Audit
 ```
-User: /forge-audit context
+User: /audit context
 
 Agent: Running context audit...
 
@@ -154,7 +154,7 @@ CONTEXT AUDIT REPORT
 
 ### Context with Deep Scan
 ```
-User: /forge-audit context --deep
+User: /audit context --deep
 
 Agent: Running deep context audit...
 
@@ -165,7 +165,7 @@ CONTEXT AUDIT REPORT
 
 ### All Audits
 ```
-User: /forge-audit all
+User: /audit all
 
 Agent: Running all audits...
        [Spawns agents in parallel]
@@ -179,5 +179,5 @@ FORGE AUDIT SUMMARY
 
 | Command | Purpose |
 |---------|---------|
-| `/forge-improve` | Apply retrospective improvements |
-| `/forge-retro-note` | Capture a process observation |
+| `/improve` | Apply retrospective improvements |
+| `/retro-note` | Capture a process observation |

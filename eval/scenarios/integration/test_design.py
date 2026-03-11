@@ -1,6 +1,6 @@
 """Tier 2 integration tests: design phase output quality.
 
-Continues from a completed requirements phase and runs /forge-design
+Continues from a completed requirements phase and runs /design
 against the standard rate limiter scenario. Scores the output
 design.md against the Forge design rubric. Tests pass when >= 80%.
 
@@ -53,10 +53,10 @@ async def test_design_quality_score(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
-            "/forge-design",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
+            "/design",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -67,7 +67,7 @@ async def test_design_quality_score(
     )
 
     assert candidates, (
-        "No design.md found after running /forge-design. "
+        "No design.md found after running /design. "
         f"Contents of .forge-context: "
         f"{list((disposable_repo / '.forge-context').rglob('*'))}"
     )
@@ -93,10 +93,10 @@ async def test_design_has_architecture_overview(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
-            "/forge-design",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
+            "/design",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -128,10 +128,10 @@ async def test_design_has_testing_strategy(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-work new {STANDARD_SCENARIO}",
-            "/forge-requirements",
-            "/forge-design",
+            "/init",
+            f"/work new {STANDARD_SCENARIO}",
+            "/requirements",
+            "/design",
         ],
         max_budget_usd=5.0,
         max_turns=50,

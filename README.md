@@ -34,7 +34,7 @@ claude plugin install forge
 Three commands to get going:
 
 ```
-/forge-init
+/init
 ```
 
 Analyzes your project and scaffolds `.forge-context/` with
@@ -43,14 +43,14 @@ to git — planning artifacts travel with your code so every
 team member shares the same context.
 
 ```
-/forge-explore
+/explore
 ```
 
 Start an effort to explore a problem space and identify
 what to build.
 
 ```
-/forge-work new
+/work new
 ```
 
 Start a delivery slice once you know what to build.
@@ -68,21 +68,21 @@ Start a delivery slice once you know what to build.
 
 | Command | Purpose |
 |---------|---------|
-| `/forge-init` | Initialize Forge in your project |
-| `/forge-explore` | Discover and understand problem spaces |
-| `/forge-work` | Build and deliver focused slices |
-| `/forge-requirements` | Run requirements gathering |
-| `/forge-design` | Run the design phase |
-| `/forge-implement` | Ad-hoc changes without slice ceremony |
-| `/forge-investigate` | Investigate bugs and issues |
-| `/forge-start-task` | Start work on implementation tasks |
-| `/forge-retro-note` | Capture a process observation |
-| `/forge-improve` | Apply retro notes as improvements |
-| `/forge-phase-complete` | Complete a slice phase |
-| `/forge-audit` | Health checks on work and context |
-| `/forge-digest` | Activity digest |
-| `/forge-reviewable` | Restructure commits for review |
-| `/forge-process-pr-discussions` | Process PR discussions |
+| `/init` | Initialize Forge in your project |
+| `/explore` | Discover and understand problem spaces |
+| `/work` | Build and deliver focused slices |
+| `/requirements` | Run requirements gathering |
+| `/design` | Run the design phase |
+| `/implement` | Ad-hoc changes without slice ceremony |
+| `/investigate` | Investigate bugs and issues |
+| `/start-task` | Start work on implementation tasks |
+| `/retro-note` | Capture a process observation |
+| `/improve` | Apply retro notes as improvements |
+| `/phase-complete` | Complete a slice phase |
+| `/audit` | Health checks on work and context |
+| `/digest` | Activity digest |
+| `/reviewable` | Restructure commits for review |
+| `/process-pr-discussions` | Process PR discussions |
 
 ## Documentation
 

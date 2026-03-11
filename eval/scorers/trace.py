@@ -238,13 +238,13 @@ def assert_file_exists(trace: Any, path_pattern: str) -> ToolCall:
 def assert_skill_triggered(trace: Any, skill_name: str) -> ToolCall:
     """Assert that a Skill tool call was made with the given skill name.
 
-    Skill tool calls reference skills by name (e.g. "forge-requirements",
+    Skill tool calls reference skills by name (e.g. "requirements",
     "tdd-discipline"). This assertion checks that the skill was loaded
     at least once during the session.
 
     Args:
         trace: Session trace from claude-agent-sdk.
-        skill_name: Skill identifier (e.g. "forge-design").
+        skill_name: Skill identifier (e.g. "design").
 
     Returns:
         The matching Skill ToolCall.

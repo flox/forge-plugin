@@ -1,4 +1,4 @@
-# /forge-work
+# /work
 
 Work on slices — build and deliver focused work packages.
 
@@ -156,9 +156,9 @@ Agent: Working on **{slice_name}** (Requirements phase)
 Worktree: _worktrees/{slug} (up to date)
 
 Would you like to:
-1. Continue requirements gathering (/forge-requirements)
+1. Continue requirements gathering (/requirements)
 2. Review requirements via PR comments
-3. Complete requirements phase (/forge-phase-complete)
+3. Complete requirements phase (/phase-complete)
 4. View current requirements
 ```
 
@@ -167,7 +167,7 @@ Would you like to:
 Agent: Working on **{slice_name}** (Requirements approved)
 
 Requirements are approved. Next step:
-1. Start design phase (/forge-design)
+1. Start design phase (/design)
 2. Wait — leave in "requirements approved" state
 ```
 
@@ -176,10 +176,10 @@ Requirements are approved. Next step:
 Agent: Working on **{slice_name}** (Design phase)
 
 Would you like to:
-1. Continue design work (/forge-design)
+1. Continue design work (/design)
 2. Run design review (Design Reviewer agent)
 3. Review design via PR comments
-4. Complete design phase (/forge-phase-complete)
+4. Complete design phase (/phase-complete)
 5. View current design
 ```
 
@@ -192,8 +192,8 @@ Tasks:
 - #{num}: {title} [status]
 
 Would you like to:
-1. Start/continue a task (/forge-start-task)
-2. Complete implementation phase (/forge-phase-complete)
+1. Start/continue a task (/start-task)
+2. Complete implementation phase (/phase-complete)
 ```
 
 ### Spawn Slice from Candidate
@@ -220,7 +220,7 @@ Apply diagnostic questions:
 5. Are the unknowns about "how" (not "what")?
 
 If 3+ answers are "yes" — slice is appropriate. Proceed.
-If 3+ answers are "no" — suggest `/forge-explore init`.
+If 3+ answers are "no" — suggest `/explore init`.
 
 If user confirms slice:
 
@@ -262,10 +262,10 @@ start requirements.
 
 | Action | Route To |
 |--------|----------|
-| Requirements gathering | `/forge-requirements` |
-| Design work | `/forge-design` |
-| Phase completion | `/forge-phase-complete` |
-| Task work | `/forge-start-task` |
+| Requirements gathering | `/requirements` |
+| Design work | `/design` |
+| Phase completion | `/phase-complete` |
+| Task work | `/start-task` |
 
 **Design Review:**
 Spawn `Design Reviewer` agent:
@@ -293,7 +293,7 @@ GitHub's inline comment features.
    them so they appear in "Files changed")
 3. Create a `REVIEWING.md` with instructions for reviewers
 4. Create PR and direct reviewers to it
-5. Use `/forge-process-pr-discussions` to apply feedback
+5. Use `/process-pr-discussions` to apply feedback
 
 ---
 
@@ -301,16 +301,16 @@ GitHub's inline comment features.
 
 | Invocation | Action |
 |------------|--------|
-| `/forge-work` | Full menu |
-| `/forge-work status` | Show slice status |
-| `/forge-work spawn` | Jump to spawn candidate |
-| `/forge-work new` | Jump to new standalone slice |
-| `/forge-work requirements` | Route to `/forge-requirements` |
-| `/forge-work design` | Route to `/forge-design` |
-| `/forge-work task` | Route to `/forge-start-task` |
-| `/forge-work review` | Run design review (agent) |
-| `/forge-work review-pr` | Create review PR for feedback |
-| `/forge-work complete` | Route to `/forge-phase-complete` |
+| `/work` | Full menu |
+| `/work status` | Show slice status |
+| `/work spawn` | Jump to spawn candidate |
+| `/work new` | Jump to new standalone slice |
+| `/work requirements` | Route to `/requirements` |
+| `/work design` | Route to `/design` |
+| `/work task` | Route to `/start-task` |
+| `/work review` | Run design review (agent) |
+| `/work review-pr` | Create review PR for feedback |
+| `/work complete` | Route to `/phase-complete` |
 
 ---
 
@@ -344,7 +344,7 @@ to the worktree location, not the main branch location.
 
 ### Spawn from Candidate
 ```
-User: /forge-work
+User: /work
 
 Agent: You're on main.
 
@@ -370,7 +370,7 @@ Agent: Creating slice for CUDA Build Support...
 
 ### Continue Slice Work
 ```
-User: /forge-work
+User: /work
 
 Agent: You're on main.
 
@@ -382,8 +382,8 @@ User: env-sboms
 Agent: Working on **Environment SBOMs** (Design phase)
 
 Would you like to:
-1. Continue design work (/forge-design)
+1. Continue design work (/design)
 2. Run design review
-3. Complete design phase (/forge-phase-complete)
+3. Complete design phase (/phase-complete)
 4. View current design
 ```

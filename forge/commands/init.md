@@ -1,4 +1,4 @@
-# /forge-init
+# /init
 
 Set up Forge planning in a project by scaffolding
 `.forge-context/` and capturing project context.
@@ -418,7 +418,7 @@ section. Examples:
 - "Formatting: rustfmt with default settings"
 
 The principles file should always note that users can
-refine it over time via `/forge-retro-note`.
+refine it over time via `/retro-note`.
 
 ### Step 8: Append CLAUDE.md Section
 
@@ -438,17 +438,17 @@ Append the following section:
 This project uses Forge for structured planning.
 Planning artifacts live in `.forge-context/`.
 
-- `/forge-explore` - Discover and frame problems
-- `/forge-work` - Build and deliver solutions
-- `/forge-retro-note` - Capture process observations
-- `/forge-improve` - Apply notes as improvements
-- `/forge-audit` - Verify context accuracy
-- `/forge-digest` - Summarize recent planning activity
-- `/forge-reviewable` - Restructure commits for review
+- `/explore` - Discover and frame problems
+- `/work` - Build and deliver solutions
+- `/retro-note` - Capture process observations
+- `/improve` - Apply notes as improvements
+- `/audit` - Verify context accuracy
+- `/digest` - Summarize recent planning activity
+- `/reviewable` - Restructure commits for review
 
 Context files in `.forge-context/context/` describe
 the project, team, and guidelines. Keep these updated
-as the project evolves, or run `/forge-audit` to
+as the project evolves, or run `/audit` to
 check for drift.
 
 If `.forge-context/overrides/terminology.md` exists
@@ -481,28 +481,28 @@ output, use their term instead.
 >
 > Your team may already have names for these concepts.
 > If so, you can capture your preferred terms now as a
-> retro note. Then later, running `/forge-improve` will
+> retro note. Then later, running `/improve` will
 > apply the change to
 > `.forge-context/overrides/terminology.md`."
 >
 > 1. Yes — capture terminology as a retro note
 > 2. No — the default terms work for us
 
-If yes, jump to `/forge-retro-note` to record the note.
+If yes, jump to `/retro-note` to record the note.
 
 **IMPORTANT: Only record the retro note. Do NOT update
 `terminology.md` directly.** The purpose of this step is
 to introduce the user to the retro-note → improve cycle.
 The terminology change will be applied when the user runs
-`/forge-improve`.
+`/improve`.
 
 ### Step 10: Offer First Action
 
 > "Forge is ready! What would you like to do?"
 >
-> 1. Explore a problem space (`/forge-explore`)
-> 2. Start building something (`/forge-work new`)
-> 3. Investigate an issue (`/forge-investigate`)
+> 1. Explore a problem space (`/explore`)
+> 2. Start building something (`/work new`)
+> 3. Investigate an issue (`/investigate`)
 > 4. Just commit the scaffold — I'll come back later
 
 Route to the chosen command, or proceed to commit.

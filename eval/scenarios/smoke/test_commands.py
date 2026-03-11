@@ -8,20 +8,20 @@ Budget: $1 per test, 20 turns max.
 Skip automatically when ANTHROPIC_API_KEY is not set.
 
 Command → expected skill mapping:
-1.  forge-explore           → "forge-explore"
-2.  forge-work              → "forge-work"
-3.  forge-requirements      → "forge-requirements"
-4.  forge-design            → "forge-design"
-5.  forge-implement         → "forge-implement"
-6.  forge-investigate       → "forge-investigate" (or "issue-investigator")
-7.  forge-start-task        → "forge-start-ticket"
-8.  forge-phase-complete    → "forge-phase-complete"
-9.  forge-process-pr-discussions → "forge-process-pr-discussions"
-10. forge-reviewable        → "forge-reviewable" (or "commit-restructuring")
-11. forge-retro-note        → "forge-retro-note" (or "correction-tracking")
-12. forge-improve           → "forge-maint-improve"
-13. forge-audit             → "forge-maint-audit"
-14. forge-digest            → "forge-digest"
+1.  explore           → "explore"
+2.  work              → "work"
+3.  requirements      → "requirements"
+4.  design            → "design"
+5.  implement         → "implement"
+6.  investigate       → "investigate" (or "issue-investigator")
+7.  start-task        → "start-task"
+8.  phase-complete    → "phase-complete"
+9.  process-pr-discussions → "process-pr-discussions"
+10. reviewable        → "reviewable" (or "commit-restructuring")
+11. retro-note        → "retro-note" (or "correction-tracking")
+12. improve           → "improve"
+13. audit             → "audit"
+14. digest            → "digest"
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ async def _run_command_test(
 
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/forge-init", prompt],
+        prompts=["/init", prompt],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -76,10 +76,10 @@ async def test_forge_explore_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-explore should trigger the forge-explore skill."""
+    """explore should trigger the explore skill."""
     await _run_command_test(
-        "/forge-explore",
-        "forge-explore",
+        "/explore",
+        "explore",
         disposable_repo,
         run_session,
         extra_prompt="What should we build for rate limiting?",
@@ -91,10 +91,10 @@ async def test_forge_work_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-work should trigger the forge-work skill."""
+    """work should trigger the work skill."""
     await _run_command_test(
-        "/forge-work",
-        "forge-work",
+        "/work",
+        "work",
         disposable_repo,
         run_session,
         extra_prompt="new",
@@ -106,10 +106,10 @@ async def test_forge_requirements_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-requirements should trigger the forge-requirements skill."""
+    """requirements should trigger the requirements skill."""
     await _run_command_test(
-        "/forge-requirements",
-        "forge-requirements",
+        "/requirements",
+        "requirements",
         disposable_repo,
         run_session,
     )
@@ -120,10 +120,10 @@ async def test_forge_design_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-design should trigger the forge-design skill."""
+    """design should trigger the design skill."""
     await _run_command_test(
-        "/forge-design",
-        "forge-design",
+        "/design",
+        "design",
         disposable_repo,
         run_session,
     )
@@ -134,10 +134,10 @@ async def test_forge_implement_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-implement should trigger the forge-implement skill."""
+    """implement should trigger the implement skill."""
     await _run_command_test(
-        "/forge-implement",
-        "forge-implement",
+        "/implement",
+        "implement",
         disposable_repo,
         run_session,
         extra_prompt="Add a health check endpoint",
@@ -149,10 +149,10 @@ async def test_forge_investigate_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-investigate should trigger the forge-investigate skill."""
+    """investigate should trigger the investigate skill."""
     await _run_command_test(
-        "/forge-investigate",
-        "forge-investigate",
+        "/investigate",
+        "investigate",
         disposable_repo,
         run_session,
         extra_prompt="Why does the app crash on startup?",
@@ -164,10 +164,10 @@ async def test_forge_start_task_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-start-task should trigger the forge-start-ticket skill."""
+    """start-task should trigger the start-task skill."""
     await _run_command_test(
-        "/forge-start-task",
-        "forge-start-ticket",
+        "/start-task",
+        "start-task",
         disposable_repo,
         run_session,
     )
@@ -178,10 +178,10 @@ async def test_forge_phase_complete_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-phase-complete should trigger the forge-phase-complete skill."""
+    """phase-complete should trigger the phase-complete skill."""
     await _run_command_test(
-        "/forge-phase-complete",
-        "forge-phase-complete",
+        "/phase-complete",
+        "phase-complete",
         disposable_repo,
         run_session,
     )
@@ -192,10 +192,10 @@ async def test_forge_process_pr_discussions_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-process-pr-discussions should trigger matching skill."""
+    """process-pr-discussions should trigger matching skill."""
     await _run_command_test(
-        "/forge-process-pr-discussions",
-        "forge-process-pr-discussions",
+        "/process-pr-discussions",
+        "process-pr-discussions",
         disposable_repo,
         run_session,
     )
@@ -206,9 +206,9 @@ async def test_forge_reviewable_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-reviewable should trigger commit-restructuring skill."""
+    """reviewable should trigger commit-restructuring skill."""
     await _run_command_test(
-        "/forge-reviewable",
+        "/reviewable",
         "commit-restructuring",
         disposable_repo,
         run_session,
@@ -220,9 +220,9 @@ async def test_forge_retro_note_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-retro-note should trigger correction-tracking skill."""
+    """retro-note should trigger correction-tracking skill."""
     await _run_command_test(
-        "/forge-retro-note",
+        "/retro-note",
         "correction-tracking",
         disposable_repo,
         run_session,
@@ -235,10 +235,10 @@ async def test_forge_improve_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-improve should trigger the forge-maint-improve skill."""
+    """improve should trigger the improve skill."""
     await _run_command_test(
-        "/forge-improve",
-        "forge-maint-improve",
+        "/improve",
+        "improve",
         disposable_repo,
         run_session,
     )
@@ -249,10 +249,10 @@ async def test_forge_audit_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-audit should trigger the forge-maint-audit skill."""
+    """audit should trigger the audit skill."""
     await _run_command_test(
-        "/forge-audit",
-        "forge-maint-audit",
+        "/audit",
+        "audit",
         disposable_repo,
         run_session,
     )
@@ -263,10 +263,10 @@ async def test_forge_digest_triggers_skill(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """forge-digest should trigger the forge-digest skill."""
+    """digest should trigger the digest skill."""
     await _run_command_test(
-        "/forge-digest",
-        "forge-digest",
+        "/digest",
+        "digest",
         disposable_repo,
         run_session,
     )

@@ -1,6 +1,6 @@
 """Tier 2 integration tests: effort framing / explore phase output quality.
 
-Runs /forge-init + /forge-explore init and scores the output effort.md
+Runs /init + /explore init and scores the output effort.md
 against the Forge effort rubric. Tests pass when quality score >= 80%.
 
 Standard scenario:
@@ -54,8 +54,8 @@ async def test_effort_quality_score(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-explore init {EXPLORE_SCENARIO}",
+            "/init",
+            f"/explore init {EXPLORE_SCENARIO}",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -66,7 +66,7 @@ async def test_effort_quality_score(
     )
 
     assert candidates, (
-        "No effort.md found after running /forge-explore init. "
+        "No effort.md found after running /explore init. "
         f"Contents of .forge-context: "
         f"{list((disposable_repo / '.forge-context').rglob('*'))}"
     )
@@ -92,8 +92,8 @@ async def test_effort_has_problem_statement(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-explore init {EXPLORE_SCENARIO}",
+            "/init",
+            f"/explore init {EXPLORE_SCENARIO}",
         ],
         max_budget_usd=5.0,
         max_turns=50,
@@ -129,8 +129,8 @@ async def test_effort_has_open_questions(
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
         prompts=[
-            "/forge-init",
-            f"/forge-explore init {EXPLORE_SCENARIO}",
+            "/init",
+            f"/explore init {EXPLORE_SCENARIO}",
         ],
         max_budget_usd=5.0,
         max_turns=50,

@@ -38,7 +38,7 @@ everything inside `forge/`.
 
 Each file is a slash command definition in markdown.
 The filename (without `.md`) becomes the command
-name. For example, `forge-init.md` defines `/forge-init`.
+name. For example, `init.md` defines `/init`.
 
 Commands are the entry points users interact with.
 They describe behavior and delegate complex work
@@ -69,7 +69,7 @@ See Skill: `skill-name` for details.
 ### Templates (`forge/templates/`)
 
 Templates are markdown files copied to the user's
-project by `/forge-init`. They live in:
+project by `/init`. They live in:
 
 ```
 forge/templates/
@@ -95,7 +95,7 @@ forge/templates/
 
 ### Adding a New Command
 
-1. Create `forge/commands/forge-{name}.md`
+1. Create `forge/commands/{name}.md`
 2. Follow the pattern of existing commands
 3. If the command needs complex behavior, create
    a matching agent in `forge/agents/`
@@ -119,7 +119,7 @@ forge/templates/
 ### Updating Templates
 
 Templates in `forge/templates/` are copied to
-users' projects during `/forge-init`. Changes
+users' projects during `/init`. Changes
 here affect new projects only — existing projects
 keep their copies.
 
@@ -157,7 +157,7 @@ echo "# Test Project" > README.md
 Open Claude Code in that directory and run:
 
 ```
-/forge-init
+/init
 ```
 
 Then test the specific commands you've changed.

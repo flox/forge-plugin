@@ -256,7 +256,7 @@ When completing requirements phase:
 
 **Next step guidance:**
 - Do not create implementation tickets yet
-- Design phase comes next — guide user to `/forge-design`
+- Design phase comes next — guide user to `/design`
 
 ### Step 6: Offer Ticket Creation (Design Phase Only)
 
