@@ -29,22 +29,9 @@ git.pkg-path = "git"
 ## -------------------------------------------------------------------
 [hook]
 on-activate = '''
-  # Create venv if it doesn't exist
-  if [ ! -d "$FLOX_ENV_PROJECT/.venv" ]; then
-    echo "Creating Python virtual environment..."
-    uv venv "$FLOX_ENV_PROJECT/.venv" --python python3.11
-  fi
-
-  # Activate the venv
-  source "$FLOX_ENV_PROJECT/.venv/bin/activate"
-
-  # Install/sync Python dependencies
-  if [ ! -f "$FLOX_ENV_PROJECT/.venv/.installed" ] || \
-     [ "$FLOX_ENV_PROJECT/pyproject.toml" -nt "$FLOX_ENV_PROJECT/.venv/.installed" ]; then
-    echo "Installing Python dependencies..."
-    uv pip install -e "$FLOX_ENV_PROJECT[dev]" --quiet
-    touch "$FLOX_ENV_PROJECT/.venv/.installed"
-  fi
+  # Sync Python dependencies (creates .venv if needed)
+  cd "$FLOX_ENV_PROJECT"
+  uv sync --quiet 2>/dev/null || uv sync
 '''
 
 
@@ -55,8 +42,8 @@ on-activate = '''
 common = '''
   echo ""
   echo "Forge Plugin Eval Environment"
-  echo "  Python:  $(python3 --version 2>/dev/null)"
-  echo "  pytest:  $(python3 -m pytest --version 2>/dev/null | head -1)"
+  echo "  Python:  $(uv run python --version 2>/dev/null)"
+  echo "  pytest:  $(uv run pytest --version 2>/dev/null | head -1)"
   echo ""
   if [ -z "$ANTHROPIC_API_KEY" ]; then
     echo "  ⚠ ANTHROPIC_API_KEY not set — tests will be skipped"
@@ -66,9 +53,9 @@ common = '''
   fi
   echo ""
   echo "  Run evals:"
-  echo "    pytest scenarios/smoke/ -m smoke -v        # Tier 1 (~$1/test)"
-  echo "    pytest scenarios/integration/ -m integration -v  # Tier 2 (~$5/test)"
-  echo "    pytest scenarios/e2e/ -m e2e -v            # Tier 3 (~$15/test)"
+  echo "    uv run pytest scenarios/smoke/ -m smoke -v        # Tier 1"
+  echo "    uv run pytest scenarios/integration/ -m integration -v  # Tier 2"
+  echo "    uv run pytest scenarios/e2e/ -m e2e -v            # Tier 3"
   echo ""
 '''
 
