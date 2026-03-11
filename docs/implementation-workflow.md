@@ -19,7 +19,7 @@ the full design. This is the context cascade from the
 flowchart LR
     D["design.md"] --> DA["design-agentic.md"]
     DA --> TB["ticket-brief-t1.md"]
-    TB --> W["Implementation Worker\n(isolated worktree)"]
+    TB --> W["Implementation Worker<br/>(isolated worktree)"]
 
     style TB fill:#f4e8e8
 ```
@@ -44,16 +44,16 @@ embedded directly in the phase sequence.
 
 ```mermaid
 flowchart TB
-    P0["Phase 0: Work Mode\n(new ticket vs PR follow-up)"]
+    P0["Phase 0: Work Mode<br/>(new ticket vs PR follow-up)"]
     P05["Phase 0.5: Worktree Setup"]
-    P1["Phase 1a: Gather Context\n• Read ticket + design artifacts\n• Discover code patterns\n• Context verification checkpoint"]
-    P15["Phase 1.5: Extract Design Specs\n(working-memory checklist)"]
-    P2["Phase 2: Explore Existing Code\n(grep before you code)"]
+    P1["Phase 1a: Gather Context<br/>• Read ticket + design artifacts<br/>• Discover code patterns<br/>• Context verification checkpoint"]
+    P15["Phase 1.5: Extract Design Specs<br/>(working-memory checklist)"]
+    P2["Phase 2: Explore Existing Code<br/>(grep before you code)"]
     P3["Phase 3: Plan Implementation"]
 
-    P4["Phase 4: Implement\n(TDD: RED-GREEN-REFACTOR)"]
-    P45["Phase 4.5: Design Compliance\nCheckpoint"]
-    P5["Phase 5: Verify\n(evidence-based completion)"]
+    P4["Phase 4: Implement<br/>(TDD: RED-GREEN-REFACTOR)"]
+    P45["Phase 4.5: Design Compliance<br/>Checkpoint"]
+    P5["Phase 5: Verify<br/>(evidence-based completion)"]
     P6["Phase 6: Create Draft PR"]
     P7["Phase 7: Report for Review"]
 
@@ -72,13 +72,13 @@ implementation:
 
 ```mermaid
 flowchart LR
-    R["RED\nWrite failing test"] --> G["GREEN\nMinimal code to pass"]
-    G --> RF["REFACTOR\nImprove quality"]
+    R["RED<br/>Write failing test"] --> G["GREEN<br/>Minimal code to pass"]
+    G --> RF["REFACTOR<br/>Improve quality"]
     RF --> R
 
-    R -. "must FAIL\nfor the right reason" .-> R
-    G -. "must PASS\nno extras yet" .-> G
-    RF -. "tests still pass\nno behavior change" .-> RF
+    R -. "must FAIL<br/>for the right reason" .-> R
+    G -. "must PASS<br/>no extras yet" .-> G
+    RF -. "tests still pass<br/>no behavior change" .-> RF
 ```
 
 **Strong TDD candidates:** Business logic, error handling,
@@ -132,12 +132,12 @@ change characteristics.
 
 ```mermaid
 flowchart TB
-    W["Implementation Worker\ncompletes with draft PR"]
-    W --> D{"Change\ncharacteristics?"}
+    W["Implementation Worker<br/>completes with draft PR"]
+    W --> D{"Change<br/>characteristics?"}
 
-    D -- "≤50 lines\nlow risk" --> A["Path A: Simple Review\n(single Code Reviewer)"]
-    D -- ">50 lines or\nsecurity-sensitive" --> B["Path B: Parallel Review\n(3 lens agents + synthesis)"]
-    D -- "Teams available\n+ user opt-in" --> C["Path C: Agent Teams\n(experimental)"]
+    D -- "≤50 lines<br/>low risk" --> A["Path A: Simple Review<br/>(single Code Reviewer)"]
+    D -- ">50 lines or<br/>security-sensitive" --> B["Path B: Parallel Review<br/>(3 lens agents + synthesis)"]
+    D -- "Teams available<br/>+ user opt-in" --> C["Path C: Agent Teams<br/>(experimental)"]
 
     A --> POST["Post-Review Decision"]
     B --> POST
@@ -160,15 +160,15 @@ different dimension:
 
 ```mermaid
 flowchart TB
-    PR["Draft PR"] --> L1["Security &\nCorrectness\n(Opus)"]
-    PR --> L2["Performance &\nArchitecture\n(Opus)"]
-    PR --> L3["Conventions &\nTests\n(Opus)"]
+    PR["Draft PR"] --> L1["Security &<br/>Correctness<br/>(Opus)"]
+    PR --> L2["Performance &<br/>Architecture<br/>(Opus)"]
+    PR --> L3["Conventions &<br/>Tests<br/>(Opus)"]
 
-    L1 --> SYN["Synthesis Agent\n(Opus)"]
+    L1 --> SYN["Synthesis Agent<br/>(Opus)"]
     L2 --> SYN
     L3 --> SYN
 
-    SYN --> REV["Unified Review\n(posted to PR)"]
+    SYN --> REV["Unified Review<br/>(posted to PR)"]
 ```
 
 The synthesis step deduplicates findings across lenses,

@@ -20,9 +20,9 @@ flowchart LR
     A["approach mode"] --> B["full mode"]
     B --> C["enrich mode"]
 
-    A -- "design-approach.md\n~50-100 lines\ncollaborative" --> B
-    B -- "design.md\n~500-800 lines\nall phases + review gate" --> C
-    C -- "design-agentic.md\n+ ticket-brief-*.md\nzero conditionals" --> D(("Ready for\nimplementation"))
+    A -- "design-approach.md<br/>~50-100 lines<br/>collaborative" --> B
+    B -- "design.md<br/>~500-800 lines<br/>all phases + review gate" --> C
+    C -- "design-agentic.md<br/>+ ticket-brief-*.md<br/>zero conditionals" --> D(("Ready for<br/>implementation"))
 ```
 
 | Mode | Input | Output | Purpose |
@@ -48,17 +48,17 @@ subagents via the `parallel-research` skill.
 
 ```mermaid
 flowchart TB
-    R["Requirements + Context"] --> L1["Architecture\nOptions"]
-    R --> L2["Ecosystem\nPatterns"]
-    R --> L3["Risk &\nConstraints"]
-    R --> L4["Devil's\nAdvocate"]
+    R["Requirements + Context"] --> L1["Architecture<br/>Options"]
+    R --> L2["Ecosystem<br/>Patterns"]
+    R --> L3["Risk &<br/>Constraints"]
+    R --> L4["Devil's<br/>Advocate"]
 
     L1 --> S["Lens Synthesis"]
     L2 --> S
     L3 --> S
     L4 --> S
 
-    S --> DA["design-approach.md\n2-3 viable approaches\nwith multi-lens evidence"]
+    S --> DA["design-approach.md<br/>2-3 viable approaches<br/>with multi-lens evidence"]
 ```
 
 Each lens has a distinct focus:
@@ -100,26 +100,26 @@ is the fan-out/fan-in pattern at its most elaborate.
 
 ```mermaid
 flowchart TB
-    CMD["forge-design\n(detects 3+ subsystems)"] --> ASK{"User opts in\nto team design?"}
-    ASK -- "No" --> STD["Standard: single\nDesigner agent"]
+    CMD["forge-design<br/>(detects 3+ subsystems)"] --> ASK{"User opts in<br/>to team design?"}
+    ASK -- "No" --> STD["Standard: single<br/>Designer agent"]
     ASK -- "Yes" --> S1
 
-    S1["Stage 1: Architect Decomposer\n(Opus)"]
-    S1 --> DEC["artifacts/architect-decomposition.md\n• Subsystem boundaries\n• Interface contracts\n• Resource lifecycles\n• Boundary edge cases"]
+    S1["Stage 1: Architect Decomposer<br/>(Opus)"]
+    S1 --> DEC["artifacts/architect-decomposition.md<br/>• Subsystem boundaries<br/>• Interface contracts<br/>• Resource lifecycles<br/>• Boundary edge cases"]
 
-    DEC --> S2A["Stage 2: Designer\nSubsystem 1\n(Opus)"]
-    DEC --> S2B["Stage 2: Designer\nSubsystem 2\n(Opus)"]
-    DEC --> S2C["Stage 2: Designer\nSubsystem N\n(Opus)"]
+    DEC --> S2A["Stage 2: Designer<br/>Subsystem 1<br/>(Opus)"]
+    DEC --> S2B["Stage 2: Designer<br/>Subsystem 2<br/>(Opus)"]
+    DEC --> S2C["Stage 2: Designer<br/>Subsystem N<br/>(Opus)"]
 
     S2A --> SUB1["artifacts/subsystem-1-*.md"]
     S2B --> SUB2["artifacts/subsystem-2-*.md"]
     S2C --> SUBN["artifacts/subsystem-N-*.md"]
 
-    SUB1 --> S3["Stage 3: Design Synthesizer\n(Opus)"]
+    SUB1 --> S3["Stage 3: Design Synthesizer<br/>(Opus)"]
     SUB2 --> S3
     SUBN --> S3
 
-    S3 --> OUT["design.md (unified)\n+ artifacts/synthesis-notes.md"]
+    S3 --> OUT["design.md (unified)<br/>+ artifacts/synthesis-notes.md"]
 ```
 
 ### Stage 1: Architect Decomposer
@@ -187,15 +187,15 @@ give implementation agents exactly what they need.
 
 ```mermaid
 flowchart TB
-    D["design.md\n(TAO-approved, human-readable)"]
-    D --> DA["design-agentic.md\n(zero conditionals,\nfull specifications)"]
+    D["design.md<br/>(TAO-approved, human-readable)"]
+    D --> DA["design-agentic.md<br/>(zero conditionals,<br/>full specifications)"]
     DA --> TB1["ticket-brief-t1.md"]
     DA --> TB2["ticket-brief-t2.md"]
     DA --> TBN["ticket-brief-tN.md"]
 
-    TB1 --> W1["Implementation\nWorker"]
-    TB2 --> W2["Implementation\nWorker"]
-    TBN --> WN["Implementation\nWorker"]
+    TB1 --> W1["Implementation<br/>Worker"]
+    TB2 --> W2["Implementation<br/>Worker"]
+    TBN --> WN["Implementation<br/>Worker"]
 
     style D fill:#e8f4e8
     style DA fill:#e8e8f4
