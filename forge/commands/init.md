@@ -511,7 +511,40 @@ test -d ".flox"
 **If `.flox/` exists:** Skip this step — the project already
 has a Flox environment.
 
-**If `.flox/` does not exist:**
+**If `.flox/` does not exist**, check whether the `flox` CLI
+is available:
+
+```bash
+command -v flox >/dev/null 2>&1
+```
+
+#### Case A: Flox is not installed
+
+> "This project doesn't have a reproducible development
+> environment yet. Flox can define the exact tools and
+> dependencies needed to build, run, and lint this
+> project — compilers, runtimes, formatters, and anything
+> else the workflow requires — in a `manifest.toml` that
+> gets committed to git.
+>
+> When a contributor runs `flox activate`, they get
+> every dependency automatically on any Linux or macOS
+> machine, without manual setup.
+>
+> Flox is not currently installed. To set it up:
+>
+> 1. Install Flox: https://flox.dev/get
+> 2. Install the Flox plugin for Claude Code:
+>    `claude plugin marketplace add flox/flox-agentic`
+>    `claude plugin install flox`
+>
+> After installing, you can create a Flox environment
+> anytime by running `flox init` in your project
+> directory."
+
+Note this as a recommendation and continue to Step 10.
+
+#### Case B: Flox is installed, no `.flox/`
 
 > "This project doesn't have a Flox environment yet.
 >
@@ -533,7 +566,7 @@ has a Flox environment.
 > 1. Yes — set up a Flox environment (Recommended)
 > 2. No — skip for now
 
-If the user selects 1, use Skill: `flox:flox-environments`
+If the user selects 1, use Skill: `flox-environments`
 to create an environment appropriate for the detected
 project type:
 
@@ -553,7 +586,13 @@ After creation, confirm:
 > environment.
 >
 > You can add or remove packages anytime with
-> `flox install <package>` and `flox uninstall <package>`."
+> `flox install <package>` and
+> `flox uninstall <package>`.
+>
+> For advanced Flox features (services, builds,
+> containers, CUDA), install the full Flox plugin:
+> `claude plugin marketplace add flox/flox-agentic`
+> `claude plugin install flox`"
 
 The `.flox/` directory will be included in the commit
 in Step 11.

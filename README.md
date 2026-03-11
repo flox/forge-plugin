@@ -114,7 +114,7 @@ Start a delivery slice once you know what to build.
 |------|-------|---------|
 | Commands | 15 | Slash commands for the full workflow |
 | Agents | 18 | Subagents for requirements, design, review, and more |
-| Skills | 21 | Reusable knowledge modules |
+| Skills | 22 | Reusable knowledge modules |
 | Templates | 11 | Scaffold templates copied to your project |
 
 ## Contributing
