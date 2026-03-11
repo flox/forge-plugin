@@ -12,8 +12,7 @@ artifacts that live alongside your code.
 Add the Forge marketplace and install the plugin:
 
 ```bash
-claude plugin add-marketplace \
-  https://github.com/flox/forge-plugin
+claude plugin marketplace add flox/forge-plugin
 claude plugin install forge
 ```
 
