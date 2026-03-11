@@ -57,26 +57,26 @@ sequence, with user approval gates between them.
 
 ```mermaid
 flowchart TB
-    CMD["/forge:reviewable\n(orchestrator)"]
-    CMD --> PARSE["Step 1-3: Parse args\nDetermine mode\nCreate ephemeral worktree"]
+    CMD["/forge:reviewable<br/>(orchestrator)"]
+    CMD --> PARSE["Step 1-3: Parse args<br/>Determine mode<br/>Create ephemeral worktree"]
 
-    PARSE --> SA["Step 4: Story Architect\n(Opus)\nAnalyze + plan commits"]
+    PARSE --> SA["Step 4: Story Architect<br/>(Opus)<br/>Analyze + plan commits"]
 
-    SA --> PLAN["Story Plan\n• Phases with rationale\n• Commits with review depth\n• File assignments"]
+    SA --> PLAN["Story Plan<br/>• Phases with rationale<br/>• Commits with review depth<br/>• File assignments"]
 
-    PLAN --> APPROVE{"Step 5:\nUser approval?"}
+    PLAN --> APPROVE{"Step 5:<br/>User approval?"}
     APPROVE -- "Revise" --> SA
     APPROVE -- "Abort" --> CLEAN["Cleanup worktree"]
     APPROVE -- "Yes" --> EXEC
 
-    EXEC{"Step 6:\nExecution mode?"}
-    EXEC -- "Standard" --> CB["Commit Builder\n(Sonnet)\nStage hunks + commit"]
-    EXEC -- "Interactive" --> INT["Per-commit loop\nStage → Preview → Confirm"]
+    EXEC{"Step 6:<br/>Execution mode?"}
+    EXEC -- "Standard" --> CB["Commit Builder<br/>(Sonnet)<br/>Stage hunks + commit"]
+    EXEC -- "Interactive" --> INT["Per-commit loop<br/>Stage → Preview → Confirm"]
 
-    CB --> VERIFY["Step 7: Parity Check\ngit diff original..restructured\nmust be empty"]
+    CB --> VERIFY["Step 7: Parity Check<br/>git diff original..restructured<br/>must be empty"]
     INT --> VERIFY
 
-    VERIFY --> DONE{"Step 8:\nWhat next?"}
+    VERIFY --> DONE{"Step 8:<br/>What next?"}
     DONE -- "Push" --> PUSH["Push restructured branch"]
     DONE -- "Keep" --> LOCAL["Keep locally"]
     DONE -- "Discard" --> CLEAN
@@ -113,10 +113,10 @@ never executes git commands — it designs the narrative.
 
 ```mermaid
 flowchart TB
-    P1["Phase 1: Gather Context\n• Read diff/commits\n• Check for Forge slice references\n• Load design.md if available"]
-    P2["Phase 2: Detect & Classify\n• Scan for code relocations\n• Classify by review concern\n• Split same-file changes"]
-    P3["Phase 3: Design the Story\n• Types before implementations\n• Abstractions before uses\n• Infrastructure before features\n• Each commit standalone"]
-    P4["Phase 4: Assess Review Depth\n• high/medium/low per commit\n• Specific reason per assignment\n• Testability as depth signal"]
+    P1["Phase 1: Gather Context<br/>• Read diff/commits<br/>• Check for Forge slice references<br/>• Load design.md if available"]
+    P2["Phase 2: Detect & Classify<br/>• Scan for code relocations<br/>• Classify by review concern<br/>• Split same-file changes"]
+    P3["Phase 3: Design the Story<br/>• Types before implementations<br/>• Abstractions before uses<br/>• Infrastructure before features<br/>• Each commit standalone"]
+    P4["Phase 4: Assess Review Depth<br/>• high/medium/low per commit<br/>• Specific reason per assignment<br/>• Testability as depth signal"]
 
     P1 --> P2 --> P3 --> P4
 ```
@@ -157,20 +157,20 @@ It stages hunks, creates commits, and verifies zero loss.
 
 ```mermaid
 flowchart TB
-    V["Phase 1: Verify Setup\nConfirm worktree exists\nCheck unstaged changes"]
+    V["Phase 1: Verify Setup<br/>Confirm worktree exists<br/>Check unstaged changes"]
     V --> LOOP
 
     subgraph LOOP["Phase 2: Per-Commit Loop"]
         direction TB
-        STAGE{"File belongs to\nmultiple commits?"}
-        STAGE -- "Yes" --> HUNK["Patch-based staging\n(hunk-level filtering)"]
+        STAGE{"File belongs to<br/>multiple commits?"}
+        STAGE -- "Yes" --> HUNK["Patch-based staging<br/>(hunk-level filtering)"]
         STAGE -- "No" --> WHOLE["git add file"]
-        HUNK --> VERIFY_S["Verify staging\ngit diff --cached --stat"]
+        HUNK --> VERIFY_S["Verify staging<br/>git diff --cached --stat"]
         WHOLE --> VERIFY_S
-        VERIFY_S --> COMMIT["Create commit\n(conventional format +\nReview-depth trailer)"]
+        VERIFY_S --> COMMIT["Create commit<br/>(conventional format +<br/>Review-depth trailer)"]
     end
 
-    LOOP --> PARITY["Phase 3: Parity Check\ngit diff HEAD original-tip\nmust be empty"]
+    LOOP --> PARITY["Phase 3: Parity Check<br/>git diff HEAD original-tip<br/>must be empty"]
 ```
 
 ### Hunk-Level Staging
