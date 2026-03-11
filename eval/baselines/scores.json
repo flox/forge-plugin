@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Baseline quality scores for Forge plugin eval harness. Run eval suite and update with actual values.",
   "baselines": {
     "requirements": {
