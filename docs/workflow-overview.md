@@ -45,33 +45,65 @@ it's done when all tasks are complete.
 
 ---
 
-## The Flow
+## Effort Lifecycle
 
+An effort is iterative. Discovery feeds candidates,
+candidates become slices, and slices feed learnings
+back into the effort.
+
+```mermaid
+flowchart TB
+    PS(("Problem<br/>space")) --> EX["/forge:explore"]
+    EX --> E["effort.md<br/>(living document)"]
+
+    E --> D1["User stories"]
+    E --> D2["Technical investigation"]
+    E --> D3["Open questions"]
+
+    D1 --> SC["Slice candidates"]
+    D2 --> SC
+    D3 --> SC
+
+    SC --> S1["Slice A<br/>(spawned)"]
+    SC --> S2["Slice B<br/>(spawned)"]
+    SC -.->|"not yet"| S3["Slice C<br/>(future)"]
+
+    S1 -->|"learnings &<br/>new information"| E
+    S2 -->|"learnings &<br/>new information"| E
+
+    style E fill:#e8f4e8
+    style S1 fill:#e8e8f4
+    style S2 fill:#e8e8f4
+    style S3 fill:#f0f0f0,stroke-dasharray: 5 5
 ```
-Problem space
-     │
-     ▼
- /forge:explore
-     │
-     ▼
-   effort.md         (living doc, evolve it)
-     │
-  candidates
-     │
-     ▼
- /forge:work new
-     │
-     ▼
-  requirements       (/forge:requirements)
-     │
-     ▼
-  design             (/forge:design)
-     │
-     ▼
-  implementation     (/forge:start-task)
-     │
-     ▼
-  shipped
+
+Efforts don't end when slices ship. Completed slices
+often surface new understanding that updates the effort
+and reveals new candidates.
+
+## Slice Lifecycle
+
+A slice moves through structured phases. Each phase
+has a gate before the next begins.
+
+```mermaid
+flowchart LR
+    W["/forge:work"] --> R["Requirements"]
+    R --> DA["Design<br/>approach"]
+    DA --> FD["Full<br/>design"]
+    FD --> DR["Design<br/>review"]
+    DR --> EN["Design<br/>enrichment"]
+    EN --> I["Implementation<br/>(TDD)"]
+    I --> CR["Code<br/>review"]
+    CR --> S(("Shipped"))
+
+    style R fill:#e8f4e8
+    style DA fill:#e8f4e8
+    style FD fill:#e8e8f4
+    style DR fill:#e8e8f4
+    style EN fill:#e8e8f4
+    style I fill:#f4e8e8
+    style CR fill:#f4e8e8
 ```
 
 ---
