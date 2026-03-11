@@ -134,7 +134,7 @@ def run_session(plugin_path: Path) -> Callable:
             max_budget_usd=max_budget_usd,
             max_turns=max_turns,
             system_prompt=system_context,
-            working_directory=str(repo_path),
+            cwd=str(repo_path),
         )
 
         results = []
