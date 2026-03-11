@@ -153,18 +153,16 @@ actual practices — not generic defaults.
 
 ## Worktree Workflow
 
-Forge supports worktree-based development for teams
-that use them. When working on a slice, create a
-worktree so that changes don't conflict with main:
+All effort and slice work happens in git worktrees.
+Forge commands create worktrees automatically — you
+don't need to manage them manually. This keeps `main`
+clean and lets multiple pieces of work proceed in
+parallel without conflicts.
 
-```bash
-git worktree add .worktrees/my-slice origin/main
-cd .worktrees/my-slice
-```
-
-Run `/forge-work` from inside the worktree. Forge
-detects the context and continues work in the right
-slice.
+When you run `/forge-work new` or `/forge-explore init`,
+Forge creates a worktree under `_worktrees/` with an
+ephemeral branch. Work happens there, gets committed
+and pushed, then merges back to main via PR.
 
 ---
 
