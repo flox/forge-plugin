@@ -95,6 +95,40 @@ flowchart LR
 
 ---
 
+## Use What You Need
+
+Nothing in Forge requires the full ceremony. Every
+entry point is an on-ramp, and every phase is an
+off-ramp. Use as much or as little as fits your
+situation.
+
+**Skip efforts entirely.** If the problem is already
+well-understood, run `/forge:work new` and start a
+slice directly. No effort document needed.
+
+**Use efforts for exploration only.** Run
+`/forge:explore` to capture user stories, investigate
+technical constraints, and map the problem space —
+then stop. Code by hand with the understanding you
+built. The effort document is valuable on its own.
+
+**Use slices for requirements only.** Spawn a slice
+from an effort (or start one directly), run
+`/forge:requirements` to clarify scope and acceptance
+criteria, then stop. Hand the requirements doc to
+your team and build however you like.
+
+**Skip both containers.** Run `/forge:investigate` to
+triage a bug with structured analysis, or
+`/forge:implement` to make a change with TDD
+discipline and code review — no effort or slice
+needed.
+
+The full pipeline exists for when you want it. The
+individual tools exist for when you don't.
+
+---
+
 ## The Phases
 
 ### Phase 1: Requirements
