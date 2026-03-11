@@ -54,27 +54,22 @@ back into the effort.
 ```mermaid
 flowchart TB
     PS(("Problem<br/>space")) --> EX["/forge:explore"]
-    EX --> E["effort.md<br/>(living document)"]
+    EX --> E[("effort.md<br/>(living document)")]
 
-    E --> D1["User stories"]
-    E --> D2["Technical investigation"]
-    E --> D3["Open questions"]
+    E --> D1(["User stories"])
+    E --> D2(["Technical investigation"])
+    E --> D3(["Open questions"])
 
-    D1 --> SC["Slice candidates"]
+    D1 --> SC{{"Slice candidates"}}
     D2 --> SC
     D3 --> SC
 
-    SC --> S1["Slice A<br/>(spawned)"]
-    SC --> S2["Slice B<br/>(spawned)"]
-    SC -.->|"not yet"| S3["Slice C<br/>(future)"]
+    SC --> S1[/"Slice A<br/>(spawned)"/]
+    SC --> S2[/"Slice B<br/>(spawned)"/]
+    SC -.->|"not yet"| S3[/"Slice C<br/>(future)"/]
 
     S1 -->|"learnings &<br/>new information"| E
     S2 -->|"learnings &<br/>new information"| E
-
-    style E fill:#e8f4e8
-    style S1 fill:#e8e8f4
-    style S2 fill:#e8e8f4
-    style S3 fill:#f0f0f0,stroke-dasharray: 5 5
 ```
 
 Efforts don't end when slices ship. Completed slices
@@ -88,22 +83,14 @@ has a gate before the next begins.
 
 ```mermaid
 flowchart LR
-    W["/forge:work"] --> R["Requirements"]
-    R --> DA["Design<br/>approach"]
-    DA --> FD["Full<br/>design"]
-    FD --> DR["Design<br/>review"]
-    DR --> EN["Design<br/>enrichment"]
-    EN --> I["Implementation<br/>(TDD)"]
-    I --> CR["Code<br/>review"]
+    W["/forge:work"] --> R(["Requirements"])
+    R --> DA{{"Design<br/>approach"}}
+    DA --> FD{{"Full<br/>design"}}
+    FD --> DR{{"Design<br/>review"}}
+    DR --> EN{{"Design<br/>enrichment"}}
+    EN --> I[/"Implementation<br/>(TDD)"/]
+    I --> CR[/"Code<br/>review"/]
     CR --> S(("Shipped"))
-
-    style R fill:#e8f4e8
-    style DA fill:#e8f4e8
-    style FD fill:#e8e8f4
-    style DR fill:#e8e8f4
-    style EN fill:#e8e8f4
-    style I fill:#f4e8e8
-    style CR fill:#f4e8e8
 ```
 
 ---
