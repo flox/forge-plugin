@@ -17,11 +17,9 @@ the full design. This is the context cascade from the
 
 ```mermaid
 flowchart LR
-    D["design.md"] --> DA["design-agentic.md"]
-    DA --> TB["ticket-brief-t1.md"]
-    TB --> W["Implementation Worker<br/>(isolated worktree)"]
-
-    style TB fill:#f4e8e8
+    D[("design.md")] --> DA[("design-agentic.md")]
+    DA --> TB(["ticket-brief-t1.md"])
+    TB --> W[/"Implementation Worker<br/>(isolated worktree)"/]
 ```
 
 The worker's context loading follows a priority cascade:
@@ -59,10 +57,6 @@ flowchart TB
 
     P0 --> P05 --> P1 --> P15 --> P2 --> P3
     P3 --> P4 --> P45 --> P5 --> P6 --> P7
-
-    style P4 fill:#f4e8e8
-    style P45 fill:#e8e8f4
-    style P5 fill:#e8f4e8
 ```
 
 ### TDD Discipline (Phase 4)
@@ -135,17 +129,13 @@ flowchart TB
     W["Implementation Worker<br/>completes with draft PR"]
     W --> D{"Change<br/>characteristics?"}
 
-    D -- "≤50 lines<br/>low risk" --> A["Path A: Simple Review<br/>(single Code Reviewer)"]
-    D -- ">50 lines or<br/>security-sensitive" --> B["Path B: Parallel Review<br/>(3 lens agents + synthesis)"]
-    D -- "Teams available<br/>+ user opt-in" --> C["Path C: Agent Teams<br/>(experimental)"]
+    D -- "≤50 lines<br/>low risk" --> A(["Path A: Simple Review<br/>(single Code Reviewer)"])
+    D -- ">50 lines or<br/>security-sensitive" --> B(["Path B: Parallel Review<br/>(3 lens agents + synthesis)"])
+    D -- "Teams available<br/>+ user opt-in" --> C(["Path C: Agent Teams<br/>(experimental)"])
 
     A --> POST["Post-Review Decision"]
     B --> POST
     C --> POST
-
-    style A fill:#e8f4e8
-    style B fill:#e8e8f4
-    style C fill:#f4f4e8
 ```
 
 ### Path A: Simple Review

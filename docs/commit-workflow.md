@@ -81,8 +81,6 @@ flowchart TB
     DONE -- "Keep" --> LOCAL["Keep locally"]
     DONE -- "Discard" --> CLEAN
 
-    style SA fill:#e8e8f4
-    style CB fill:#e8f4e8
 ```
 
 ### Mode Detection

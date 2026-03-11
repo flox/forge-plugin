@@ -187,21 +187,15 @@ give implementation agents exactly what they need.
 
 ```mermaid
 flowchart TB
-    D["design.md<br/>(TAO-approved, human-readable)"]
-    D --> DA["design-agentic.md<br/>(zero conditionals,<br/>full specifications)"]
-    DA --> TB1["ticket-brief-t1.md"]
-    DA --> TB2["ticket-brief-t2.md"]
-    DA --> TBN["ticket-brief-tN.md"]
+    D[("design.md<br/>(TAO-approved)")]
+    D --> DA[("design-agentic.md<br/>(zero conditionals)")]
+    DA --> TB1(["ticket-brief-t1.md"])
+    DA --> TB2(["ticket-brief-t2.md"])
+    DA --> TBN(["ticket-brief-tN.md"])
 
-    TB1 --> W1["Implementation<br/>Worker"]
-    TB2 --> W2["Implementation<br/>Worker"]
-    TBN --> WN["Implementation<br/>Worker"]
-
-    style D fill:#e8f4e8
-    style DA fill:#e8e8f4
-    style TB1 fill:#f4e8e8
-    style TB2 fill:#f4e8e8
-    style TBN fill:#f4e8e8
+    TB1 --> W1[/"Implementation<br/>Worker"/]
+    TB2 --> W2[/"Implementation<br/>Worker"/]
+    TBN --> WN[/"Implementation<br/>Worker"/]
 ```
 
 **`design-agentic.md`** enriches the approved design with
