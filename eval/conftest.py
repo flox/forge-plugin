@@ -116,24 +116,19 @@ def run_session(plugin_path: Path) -> Callable:
         # Import here so tests that don't call run_session don't fail
         # if the SDK isn't installed.
         try:
-            import anthropic  # type: ignore[import]
+            from claude_agent_sdk import ClaudeAgentOptions, query  # type: ignore[import]
         except ImportError as e:
             raise ImportError(
                 "claude-agent-sdk is required to run sessions. "
-                "Install with: pip install claude-agent-sdk"
+                "Install with: uv pip install claude-agent-sdk"
             ) from e
 
         # Build the system prompt pointing at the plugin
-        plugin_manifest = plugin_path / "forge" / "commands"
         system_context = (
             f"You are Claude Code running in a project at {repo_path}. "
             f"The Forge plugin is installed from {plugin_path}. "
             "Follow all Forge workflow conventions."
         )
-
-        # Use the claude-agent-sdk query() API
-        # See: https://github.com/anthropics/claude-agent-sdk
-        from anthropic.claude_agent_sdk import ClaudeAgentOptions, query  # type: ignore[import]
 
         options = ClaudeAgentOptions(
             max_budget_usd=max_budget_usd,
