@@ -34,7 +34,7 @@ multiple slices over time.
 
 A **slice** is a focused, shippable unit of work
 with a defined scope. It moves through structured
-phases: requirements, design (optional), and
+phases: requirements, design, and
 implementation. A slice has a clear end state —
 it's done when all tasks are complete.
 
@@ -65,7 +65,7 @@ Problem space
   requirements       (/forge-requirements)
      │
      ▼
-  design             (/forge-design, optional)
+  design             (/forge-design)
      │
      ▼
   implementation     (/forge-start-task)
@@ -94,11 +94,9 @@ an AI-assisted conversation that drafts the document.
 
 **Phase complete when:** A requirements review exists.
 
-### Phase 2: Design (Optional)
+### Phase 2: Design
 
-Design captures how you'll build it. Skip this phase
-for well-understood work where requirements are
-sufficient for an engineer to start.
+Design captures how you'll build it.
 
 A good design document includes:
 

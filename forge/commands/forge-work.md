@@ -156,10 +156,9 @@ Would you like to:
 ```
 Agent: Working on **{slice_name}** (Requirements approved)
 
-Requirements are approved. Next options:
-1. Create detailed design (/forge-design)
-2. Start implementation directly
-3. Wait — leave in "requirements approved" state
+Requirements are approved. Next step:
+1. Start design phase (/forge-design)
+2. Wait — leave in "requirements approved" state
 ```
 
 **Design Phase:**

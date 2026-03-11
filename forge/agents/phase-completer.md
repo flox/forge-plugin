@@ -246,28 +246,17 @@ indicates phase completion.
 Mark phase review items as complete in
 `{feature_path}/checklist.md`.
 
-### Step 5a: Special Case: Requirements Approved, No Design Yet
+### Step 5a: After Requirements Approval
 
-When completing requirements phase, leave the next phase open
-rather than assuming design will happen immediately:
+When completing requirements phase:
 
 **Update checklist status only:**
 - Mark Phase 1 complete
-- Leave Phase 2 (Design) untouched (not started, not skipped)
+- Leave Phase 2 (Design) as not started
 
-**Preserve optionality:**
-- Do not create implementation tickets
-- Do not mark design as "skipped"
-- Do not force a decision about next steps
-
-**Options remain open:**
-1. Engineer picks up work, links tickets, starts coding
-2. Someone runs the design phase command for detailed design
-3. Slice waits for prioritization
-
-**Only mark design as "skipped" if:**
-- Implementation completes without design
-- Engineer explicitly says "no design needed, work complete"
+**Next step guidance:**
+- Do not create implementation tickets yet
+- Design phase comes next — guide user to `/forge-design`
 
 ### Step 6: Offer Ticket Creation (Design Phase Only)
 

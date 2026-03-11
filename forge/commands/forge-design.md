@@ -11,13 +11,9 @@ the user through a progressive path:
 3. **Enrich** (`design-agentic.md` + task briefs) —
    optional agent handoff preparation
 
-Each step is optional to stop at. The command detects
-current state and suggests the next step. After approach
-completes, it offers to continue directly to full design.
-
-**Design is optional** after requirements approval. Skip
-if an engineer will implement from requirements alone,
-patterns are well-established, or complexity is low.
+The command detects current state and suggests the next
+step. After approach completes, it offers to continue
+directly to full design.
 
 ## This Command's Role
 

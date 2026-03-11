@@ -131,7 +131,7 @@ Guides an AI-assisted conversation to draft a design
 document. Covers architecture, component changes,
 alternatives, testing strategy, and task breakdown.
 
-**Run when:** Starting Phase 2 of a slice (optional).
+**Run when:** Starting Phase 2 of a slice.
 
 ---
 
