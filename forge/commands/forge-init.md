@@ -480,14 +480,21 @@ output, use their term instead.
 >   of coding work.
 >
 > Your team may already have names for these concepts.
-> If so, you can capture your preferred terms now with
-> `/forge-retro-note` and they'll appear in
+> If so, you can capture your preferred terms now as a
+> retro note. Then later, running `/forge-improve` will
+> apply the change to
 > `.forge-context/overrides/terminology.md`."
 >
-> 1. Yes — set up terminology overrides
+> 1. Yes — capture terminology as a retro note
 > 2. No — the default terms work for us
 
-If yes, jump to `/forge-retro-note`.
+If yes, jump to `/forge-retro-note` to record the note.
+
+**IMPORTANT: Only record the retro note. Do NOT update
+`terminology.md` directly.** The purpose of this step is
+to introduce the user to the retro-note → improve cycle.
+The terminology change will be applied when the user runs
+`/forge-improve`.
 
 ### Step 10: Offer First Action
 
