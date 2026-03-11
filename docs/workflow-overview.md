@@ -201,3 +201,27 @@ your `.forge-context/` directory looks like:
 
 All files are plain markdown. Commit them with your
 code — they're part of your project's knowledge base.
+
+---
+
+## Deep Dives
+
+These documents explore the agent orchestration patterns
+behind each workflow phase:
+
+- **[Design Workflow](design-workflow.md)** — Progressive
+  design path, parallel research lenses, subsystem
+  decomposition with fan-out/fan-in, context cascade
+  from design to ticket briefs, and the automated
+  design review gate
+
+- **[Implementation & Review Workflow](implementation-workflow.md)**
+  — Context isolation per ticket, TDD discipline,
+  design compliance checkpoints, three code review
+  paths (simple, parallel, teams), and the post-review
+  decision loop
+
+- **[Commit Restructuring Workflow](commit-workflow.md)**
+  — Review concern organization, the Story Architect
+  and Commit Builder pipeline, zero loss guarantee,
+  and review depth classification
