@@ -131,6 +131,10 @@ informs the deep discovery outline in Step 5b.
 echo "=== PRODUCT FILES ===" && \
 ls README.md package.json pyproject.toml Cargo.toml \
   go.mod flake.nix setup.py setup.cfg 2>/dev/null; \
+echo "=== DEV ENVIRONMENT ===" && \
+test -d .flox && echo "flox: yes" || echo "flox: no"; \
+test -f flake.nix && echo "nix-flake: yes" || true; \
+test -f shell.nix && echo "nix-shell: yes" || true; \
 echo "=== DIRECTORY STRUCTURE ===" && \
 find . -maxdepth 2 -type d \
   ! -path './.git*' ! -path './node_modules*' \
@@ -496,6 +500,64 @@ to introduce the user to the retro-note → improve cycle.
 The terminology change will be applied when the user runs
 `/forge:improve`.
 
+### Step 9b: Suggest Flox Environment
+
+Check if the project already has a Flox environment:
+
+```bash
+test -d ".flox"
+```
+
+**If `.flox/` exists:** Skip this step — the project already
+has a Flox environment.
+
+**If `.flox/` does not exist:**
+
+> "This project doesn't have a Flox environment yet.
+>
+> A Flox environment defines the tools and dependencies
+> needed to build, run, and lint the project — compilers,
+> runtimes, formatters, language servers, and anything
+> else the development workflow requires. It's defined
+> in a `manifest.toml` that gets committed to git.
+>
+> When a contributor runs `flox activate`, they get
+> every dependency automatically — on any Linux or
+> macOS machine, without manual setup. This means
+> build instructions like 'install Python 3.12,
+> Node 20, and PostgreSQL 16' become a single
+> command that works everywhere.
+>
+> Would you like to create a Flox environment?"
+>
+> 1. Yes — set up a Flox environment (Recommended)
+> 2. No — skip for now
+
+If the user selects 1, use Skill: `flox:flox-environments`
+to create an environment appropriate for the detected
+project type:
+
+- Detect languages and tools from Step 5 findings
+  (package.json → Node, Cargo.toml → Rust, etc.)
+- Include build tools, linters, formatters, and test
+  runners identified in the codebase
+- Include any system libraries the project depends on
+- Run `flox init` then `flox install` for detected
+  packages
+
+After creation, confirm:
+
+> "Flox environment created. The `.flox/` directory
+> contains your `manifest.toml` with the detected
+> dependencies. Run `flox activate` to enter the
+> environment.
+>
+> You can add or remove packages anytime with
+> `flox install <package>` and `flox uninstall <package>`."
+
+The `.flox/` directory will be included in the commit
+in Step 11.
+
 ### Step 10: Offer First Action
 
 > "Forge is ready! What would you like to do?"
@@ -520,6 +582,8 @@ Commit the scaffold to git:
 
 ```bash
 git add .forge-context/ CLAUDE.md
+# Include .flox/ if it was created in Step 9b
+test -d ".flox" && git add .flox/
 git commit -m "chore: Initialize Forge planning scaffold
 
 Sets up .forge-context/ with project context and
@@ -537,6 +601,7 @@ Report results:
 > - `.forge-context/templates/` — effort and slice templates
 > - `.forge-context/overrides/terminology.md`
 > - Updated `CLAUDE.md` with Forge command reference
+> - `.flox/` — Flox environment (if created)
 >
 > `.forge-context/` is tracked in git so your planning
 > artifacts travel with the code. All team members will
