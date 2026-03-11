@@ -165,7 +165,17 @@ Use Task tool with:
 If yes, loop back to Step 2.8 with `mode = "full"`.
 
 **After full design completes:**
-Continue to Step 4 (report) and Step 5 (review).
+> "Design documented. Would you like to enrich for
+> agent implementation? This adds behavioral depth
+> and per-task briefs that make handoff to
+> implementation agents more precise."
+> 1. Yes — enrich now (Recommended)
+> 2. No — proceed to review
+
+If yes, spawn designer with `mode = "enrich"`, then
+continue to Step 4 (report) and Step 5 (review).
+
+If no, continue to Step 4 (report) and Step 5 (review).
 
 ### Step 4: Report Completion
 
@@ -249,9 +259,20 @@ User: 1
 
 Agent: [spawns designer in full mode]
 
+Agent: Design documented. Would you like to enrich
+       for agent implementation?
+       1. Yes — enrich now (Recommended)
+       2. No — proceed to review
+
+User: 1
+
+Agent: [spawns designer in enrich mode]
+       [produces design-agentic.md + per-task briefs]
+
 Agent: Design complete for CUDA Build Support:
        - 3 key decisions documented
        - 6 implementation tasks identified
+       - Enrichment: design-agentic.md + 6 task briefs
 
        Run Design Reviewer before review?
        1. Yes (recommended)
