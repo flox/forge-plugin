@@ -44,7 +44,7 @@ async def _run_command_test(
     """Run a command and assert it produced tool calls.
 
     Args:
-        command: Slash command to send (e.g. "/explore").
+        command: Slash command to send (e.g. "/forge:explore").
         disposable_repo: Path to temp git repo.
         run_session: Async session runner fixture.
         extra_prompt: Additional text appended to command.
@@ -60,7 +60,7 @@ async def _run_command_test(
 
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/init", prompt],
+        prompts=["/forge:init", prompt],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -95,7 +95,7 @@ async def test_explore_runs(
 ) -> None:
     """explore should read context and create effort structure."""
     await _run_command_test(
-        "/explore",
+        "/forge:explore",
         disposable_repo,
         run_session,
         extra_prompt="What should we build for rate limiting?",
@@ -110,7 +110,7 @@ async def test_work_runs(
 ) -> None:
     """work should read context and present options."""
     await _run_command_test(
-        "/work",
+        "/forge:work",
         disposable_repo,
         run_session,
         extra_prompt="new",
@@ -125,7 +125,7 @@ async def test_requirements_runs(
 ) -> None:
     """requirements should read context files."""
     await _run_command_test(
-        "/requirements",
+        "/forge:requirements",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -139,7 +139,7 @@ async def test_design_runs(
 ) -> None:
     """design should read context files."""
     await _run_command_test(
-        "/design",
+        "/forge:design",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -153,7 +153,7 @@ async def test_implement_runs(
 ) -> None:
     """implement should use Bash for worktree creation."""
     await _run_command_test(
-        "/implement",
+        "/forge:implement",
         disposable_repo,
         run_session,
         extra_prompt="Add a health check endpoint",
@@ -168,7 +168,7 @@ async def test_investigate_runs(
 ) -> None:
     """investigate should read code and produce findings."""
     await _run_command_test(
-        "/investigate",
+        "/forge:investigate",
         disposable_repo,
         run_session,
         extra_prompt="Why does the app crash on startup?",
@@ -183,7 +183,7 @@ async def test_start_task_runs(
 ) -> None:
     """start-task should read context to find tickets."""
     await _run_command_test(
-        "/start-task",
+        "/forge:start-task",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -197,7 +197,7 @@ async def test_phase_complete_runs(
 ) -> None:
     """phase-complete should read checklist to identify phase."""
     await _run_command_test(
-        "/phase-complete",
+        "/forge:phase-complete",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -211,7 +211,7 @@ async def test_process_pr_discussions_runs(
 ) -> None:
     """process-pr-discussions should attempt to read PR data."""
     await _run_command_test(
-        "/process-pr-discussions",
+        "/forge:process-pr-discussions",
         disposable_repo,
         run_session,
     )
@@ -224,7 +224,7 @@ async def test_reviewable_runs(
 ) -> None:
     """reviewable should use Bash for git operations."""
     await _run_command_test(
-        "/reviewable",
+        "/forge:reviewable",
         disposable_repo,
         run_session,
         expected_tools=["Bash"],
@@ -238,7 +238,7 @@ async def test_retro_note_runs(
 ) -> None:
     """retro-note should write a note file."""
     await _run_command_test(
-        "/retro-note",
+        "/forge:retro-note",
         disposable_repo,
         run_session,
         extra_prompt="The template was missing a section for open questions.",
@@ -253,7 +253,7 @@ async def test_improve_runs(
 ) -> None:
     """improve should read retro notes."""
     await _run_command_test(
-        "/improve",
+        "/forge:improve",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -267,7 +267,7 @@ async def test_audit_runs(
 ) -> None:
     """audit should read context files for health checks."""
     await _run_command_test(
-        "/audit",
+        "/forge:audit",
         disposable_repo,
         run_session,
         expected_tools=["Read"],
@@ -281,7 +281,7 @@ async def test_digest_runs(
 ) -> None:
     """digest should read recent activity."""
     await _run_command_test(
-        "/digest",
+        "/forge:digest",
         disposable_repo,
         run_session,
         expected_tools=["Bash"],

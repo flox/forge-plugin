@@ -18,7 +18,7 @@ output. These are valuable signals for workflow improvement.
 ## Note Format with Status Tracking
 
 Each note includes a status marker for incremental processing
-by `/improve`.
+by `/forge:improve`.
 
 ```markdown
 ## YYYY-MM-DD: {Phase}

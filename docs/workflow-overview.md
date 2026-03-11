@@ -51,7 +51,7 @@ it's done when all tasks are complete.
 Problem space
      │
      ▼
- /explore
+ /forge:explore
      │
      ▼
    effort.md         (living doc, evolve it)
@@ -59,16 +59,16 @@ Problem space
   candidates
      │
      ▼
- /work new
+ /forge:work new
      │
      ▼
-  requirements       (/requirements)
+  requirements       (/forge:requirements)
      │
      ▼
-  design             (/design)
+  design             (/forge:design)
      │
      ▼
-  implementation     (/start-task)
+  implementation     (/forge:start-task)
      │
      ▼
   shipped
@@ -89,7 +89,7 @@ A good requirements document includes:
 - Affected components and who owns them
 - Open questions to resolve before design
 
-Run `/requirements` to start this phase with
+Run `/forge:requirements` to start this phase with
 an AI-assisted conversation that drafts the document.
 
 **Phase complete when:** A requirements review exists.
@@ -107,7 +107,7 @@ A good design document includes:
 - Testing strategy
 - Task breakdown
 
-Run `/design` to start this phase.
+Run `/forge:design` to start this phase.
 
 **Phase complete when:** A design review exists.
 
@@ -117,7 +117,7 @@ Implementation is where the work gets done. Tasks
 from the design (or requirements) are tracked in
 `tasks.md`.
 
-Run `/start-task` to begin work on a specific
+Run `/forge:start-task` to begin work on a specific
 task. This sets up the working context and helps
 track progress.
 
@@ -132,7 +132,7 @@ self-improving workflow. As you work, you capture
 observations:
 
 ```
-/retro-note
+/forge:retro-note
 ```
 
 > "The requirements template doesn't have a section
@@ -141,7 +141,7 @@ observations:
 Later, you apply those notes as real improvements:
 
 ```
-/improve
+/forge:improve
 ```
 
 Forge reviews your retro notes and applies them to
@@ -159,7 +159,7 @@ don't need to manage them manually. This keeps `main`
 clean and lets multiple pieces of work proceed in
 parallel without conflicts.
 
-When you run `/work new` or `/explore init`,
+When you run `/forge:work new` or `/forge:explore init`,
 Forge creates a worktree under `_worktrees/` with an
 ephemeral branch. Work happens there, gets committed
 and pushed, then merges back to main via PR.
@@ -168,7 +168,7 @@ and pushed, then merges back to main via PR.
 
 ## Directory Structure
 
-After running `/init` and creating some work,
+After running `/forge:init` and creating some work,
 your `.forge-context/` directory looks like:
 
 ```

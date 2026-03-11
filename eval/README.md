@@ -122,7 +122,7 @@ eval/
   scenarios/
     smoke/
       test_commands.py    # Command → skill triggering
-      test_init.py        # /init onboarding
+      test_init.py        # /forge:init onboarding
     integration/
       test_requirements.py  # requirements phase quality
       test_design.py        # design phase quality

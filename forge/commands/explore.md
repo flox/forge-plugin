@@ -1,4 +1,4 @@
-# /explore
+# /forge:explore
 
 Work on efforts — discover and understand problem spaces.
 
@@ -201,11 +201,11 @@ work needs effort-level discovery. Ask conversationally:
 > It might be better as a slice rather than an effort.
 >
 > Would you like to:
-> 1. Create as a slice instead (`/work new`)
+> 1. Create as a slice instead (`/forge:work new`)
 > 2. Create as an effort anyway
 > 3. Let me ask more to help decide"
 
-If the user chooses slice, redirect to `/work new`
+If the user chooses slice, redirect to `/forge:work new`
 and stop. If the user chooses effort or answers show
 genuine unknowns, proceed to Step 2.
 
@@ -332,18 +332,18 @@ Parse checklist.md and effort.md to show health summary.
 
 | Invocation | Action |
 |------------|--------|
-| `/explore` | Full menu |
-| `/explore init` | Jump to new effort |
-| `/explore story` | Jump to add story |
-| `/explore requirement` | Jump to add requirement |
-| `/explore thread` | Jump to open thread |
-| `/explore research` | Jump to plan user research |
-| `/explore candidate` | Jump to identify candidate |
-| `/explore pr` | Jump to create candidate PR |
-| `/explore decision` | Jump to record decision |
-| `/explore health` | Jump to health view |
-| `/explore review-pr` | Create review PR for feedback |
-| `/explore score` | Score/rescore effort |
+| `/forge:explore` | Full menu |
+| `/forge:explore init` | Jump to new effort |
+| `/forge:explore story` | Jump to add story |
+| `/forge:explore requirement` | Jump to add requirement |
+| `/forge:explore thread` | Jump to open thread |
+| `/forge:explore research` | Jump to plan user research |
+| `/forge:explore candidate` | Jump to identify candidate |
+| `/forge:explore pr` | Jump to create candidate PR |
+| `/forge:explore decision` | Jump to record decision |
+| `/forge:explore health` | Jump to health view |
+| `/forge:explore review-pr` | Create review PR for feedback |
+| `/forge:explore score` | Score/rescore effort |
 
 Parse arguments to skip the menu when provided.
 
@@ -366,7 +366,7 @@ to the worktree location, not the main branch location.
 
 ### Starting Fresh
 ```
-User: /explore
+User: /forge:explore
 
 Agent: You're on main.
 

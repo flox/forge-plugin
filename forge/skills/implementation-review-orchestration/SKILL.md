@@ -5,7 +5,7 @@ description: >-
   This skill should be used when a command needs the
   full implement-and-review cycle — spawning an
   implementation worker, running a code review gate, and
-  making a post-review decision. Used by /start-task
+  making a post-review decision. Used by /forge:start-task
   and /implement. Do not use for review-only or
   implementation-only workflows.
 ---
@@ -25,8 +25,8 @@ Commands load this skill when they need to:
 3. Make a post-review decision (ready vs re-work)
 
 **Commands that use this skill:**
-- `/start-task`
-- `/implement`
+- `/forge:start-task`
+- `/forge:implement`
 
 ## Three-Step Pipeline
 

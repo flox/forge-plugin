@@ -1,4 +1,4 @@
-"""Tier 1 smoke tests: /init onboarding.
+"""Tier 1 smoke tests: /forge:init onboarding.
 
 Verifies that the init command creates the expected .forge-context/
 directory structure and scaffolds the required context files.
@@ -28,7 +28,7 @@ async def test_forge_init_produces_output(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /init produces at least one file write.
+    """Verify /forge:init produces at least one file write.
 
     Within the $1/20-turn smoke budget, init should at minimum
     write CLAUDE.md or start scaffolding .forge-context/.
@@ -37,7 +37,7 @@ async def test_forge_init_produces_output(
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/init"],
+        prompts=["/forge:init"],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -61,7 +61,7 @@ async def test_forge_init_uses_bash_for_scaffold(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /init uses Bash to create directory structure.
+    """Verify /forge:init uses Bash to create directory structure.
 
     The init command creates .forge-context/ and subdirectories
     using Bash mkdir commands. This verifies the scaffolding
@@ -69,7 +69,7 @@ async def test_forge_init_uses_bash_for_scaffold(
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/init"],
+        prompts=["/forge:init"],
         max_budget_usd=1.0,
         max_turns=20,
     )
@@ -86,7 +86,7 @@ async def test_forge_init_writes_claude_md(
     disposable_repo: Path,
     run_session: object,
 ) -> None:
-    """Verify /init writes or updates CLAUDE.md.
+    """Verify /forge:init writes or updates CLAUDE.md.
 
     The init command appends Forge command references to the
     project's CLAUDE.md file. This is the most reliable
@@ -94,7 +94,7 @@ async def test_forge_init_writes_claude_md(
     """
     trace = await run_session(  # type: ignore[operator]
         repo_path=disposable_repo,
-        prompts=["/init"],
+        prompts=["/forge:init"],
         max_budget_usd=1.0,
         max_turns=20,
     )

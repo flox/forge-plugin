@@ -1,6 +1,6 @@
 # Design: [SLICE_NAME]
 
-_Run `/design` to populate this document._
+_Run `/forge:design` to populate this document._
 
 ## Summary
 

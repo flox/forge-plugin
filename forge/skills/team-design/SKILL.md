@@ -2,7 +2,7 @@
 name: team-design
 type: orchestration
 description: >-
-  This skill should be used when /design detects
+  This skill should be used when /forge:design detects
   3+ subsystems with cross-boundary interactions and the
   user opts in to team-based design. Decomposes into
   subsystems, assigns parallel Designer agents, and
@@ -23,7 +23,7 @@ user always decides whether to proceed.
 
 ## Assessment (Lightweight, In-Command)
 
-Assessment happens inside the `/design` command before
+Assessment happens inside the `/forge:design` command before
 spawning any agents. It is a quick scan, not a heavy
 operation.
 

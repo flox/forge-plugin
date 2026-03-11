@@ -1,4 +1,4 @@
-# /digest
+# /forge:digest
 
 Activity digest — highlights by duration and scope.
 
@@ -91,22 +91,22 @@ user.
 ## Examples
 
 ```
-/digest weekly
+/forge:digest weekly
 → All-scope digest for last 7 days
 
-/digest daily slices
+/forge:digest daily slices
 → Slice activity in last 24 hours
 
-/digest monthly efforts
+/forge:digest monthly efforts
 → Effort activity in last 30 days
 
-/digest since 2026-02-01
+/forge:digest since 2026-02-01
 → All activity since February 1st
 
-/digest since my-feature
+/forge:digest since my-feature
 → All activity since the my-feature effort was created
 
-/digest last 3 weeks forge
+/forge:digest last 3 weeks forge
 → Infrastructure changes in last 3 weeks
 ```
 

@@ -45,7 +45,7 @@ delivers features
 
 ### Phase 1: Initialize Effort
 
-**Command:** `/explore init`
+**Command:** `/forge:explore init`
 
 **Actions:**
 - Create effort directory structure
@@ -59,7 +59,7 @@ delivers features
 
 ### Phase 2: Story Capture
 
-**Command:** `/explore stories`
+**Command:** `/forge:explore stories`
 
 **Actions:**
 - Capture user stories from stakeholders
@@ -80,7 +80,7 @@ delivers features
 
 ### Phase 3: Requirements Gathering
 
-**Command:** `/explore requirements`
+**Command:** `/forge:explore requirements`
 
 **Actions:**
 - Extract requirements from stories
@@ -98,7 +98,7 @@ delivers features
 
 ### Phase 4: Slice Identification
 
-**Command:** `/explore slices`
+**Command:** `/forge:explore slices`
 
 **Actions:**
 - Group related stories/requirements
@@ -117,7 +117,7 @@ delivers features
 
 ### Phase 5: Slice Spawning
 
-**Command:** `/work new` (from slice candidate)
+**Command:** `/forge:work new` (from slice candidate)
 
 **Actions:**
 - Create slice directory
@@ -205,21 +205,21 @@ Effort (Discovery)
 
 ### Effort Commands
 
-- `/explore init` — Initialize effort
-- `/explore stories` — Capture user stories
-- `/explore requirements` — Extract requirements
-- `/explore slices` — Identify candidates
-- `/explore review-pr` — Create PR for feedback
+- `/forge:explore init` — Initialize effort
+- `/forge:explore stories` — Capture user stories
+- `/forge:explore requirements` — Extract requirements
+- `/forge:explore slices` — Identify candidates
+- `/forge:explore review-pr` — Create PR for feedback
 
 ## Summary
 
 | Phase | Command | Output |
 |-------|---------|--------|
-| **Initialize** | `/explore init` | effort.md |
-| **Stories** | `/explore stories` | ST-NNN stories |
-| **Requirements** | `/explore requirements` | REQ-NNN reqs |
-| **Slices** | `/explore slices` | SL-NNN candidates |
-| **Spawn** | `/work new` | Slice created |
+| **Initialize** | `/forge:explore init` | effort.md |
+| **Stories** | `/forge:explore stories` | ST-NNN stories |
+| **Requirements** | `/forge:explore requirements` | REQ-NNN reqs |
+| **Slices** | `/forge:explore slices` | SL-NNN candidates |
+| **Spawn** | `/forge:work new` | Slice created |
 
 **Key principles:**
 - Discovery before delivery

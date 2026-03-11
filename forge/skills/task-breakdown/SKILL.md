@@ -7,7 +7,7 @@ description: >-
   design. Covers deployment coupling, parallel track
   identification, task consolidation, and the task table
   format. Do not use for ticket creation (see
-  /start-task).
+  /forge:start-task).
 ---
 
 # Task Breakdown Pattern

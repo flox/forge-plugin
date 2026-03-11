@@ -10,7 +10,7 @@ and current context.
 
 These are the commands you'll use most often.
 
-### `/init`
+### `/forge:init`
 
 Initialize Forge in your project.
 
@@ -22,7 +22,7 @@ context, then asks you to confirm before writing.
 
 ---
 
-### `/explore`
+### `/forge:explore`
 
 Start or continue an effort.
 
@@ -40,7 +40,7 @@ to a solution.
 
 ---
 
-### `/work`
+### `/forge:work`
 
 Start or continue a slice.
 
@@ -57,7 +57,7 @@ based on what's already been done.
 
 ---
 
-### `/implement`
+### `/forge:implement`
 
 Ad-hoc changes without slice ceremony.
 
@@ -70,7 +70,7 @@ need requirements or design phases.
 
 ---
 
-### `/investigate`
+### `/forge:investigate`
 
 Investigate a bug or issue.
 
@@ -82,7 +82,7 @@ to fix it.
 
 ---
 
-### `/digest`
+### `/forge:digest`
 
 Summarize recent planning activity.
 
@@ -96,7 +96,7 @@ or just catching up after time away.
 
 ---
 
-### `/reviewable`
+### `/forge:reviewable`
 
 Restructure commits into atomic, reviewable units.
 
@@ -111,7 +111,7 @@ commit (skim, read, or verify).
 
 Commands for specific phases and workflow steps.
 
-### `/requirements`
+### `/forge:requirements`
 
 Run the requirements gathering phase.
 
@@ -123,7 +123,7 @@ criteria, scope boundaries, and open questions.
 
 ---
 
-### `/design`
+### `/forge:design`
 
 Run the design phase.
 
@@ -135,7 +135,7 @@ alternatives, testing strategy, and task breakdown.
 
 ---
 
-### `/start-task`
+### `/forge:start-task`
 
 Start work on an implementation task.
 
@@ -148,20 +148,20 @@ debugging, verification before complete).
 
 ---
 
-### `/retro-note`
+### `/forge:retro-note`
 
 Capture a process observation without interrupting
 your current workflow.
 
 Records a correction, gap, or improvement idea to
-a retro notes file. Applied later by `/improve`.
+a retro notes file. Applied later by `/forge:improve`.
 
 **Run when:** Noticing something about the workflow
 that could be better.
 
 ---
 
-### `/improve`
+### `/forge:improve`
 
 Apply retro notes as improvements.
 
@@ -174,7 +174,7 @@ before applying.
 
 ---
 
-### `/phase-complete`
+### `/forge:phase-complete`
 
 Complete a slice phase with a review summary.
 
@@ -188,7 +188,7 @@ and moving to the next phase.
 
 ---
 
-### `/process-pr-discussions`
+### `/forge:process-pr-discussions`
 
 Process PR discussions.
 
@@ -204,7 +204,7 @@ documents, or marks discussions as resolved.
 
 Commands for health checks and upkeep.
 
-### `/audit`
+### `/forge:audit`
 
 Health checks on work and context.
 

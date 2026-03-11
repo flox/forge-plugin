@@ -1,4 +1,4 @@
-# /reviewable
+# /forge:reviewable
 
 Transform messy commits into atomic, reviewable units
 organized by review concern.
@@ -30,7 +30,7 @@ When using bash commands:
 ## Usage
 
 ```
-/reviewable [options] [target]
+/forge:reviewable [options] [target]
 ```
 
 **Options:**
@@ -248,7 +248,7 @@ git worktree remove "$RESTRUCTURE_DIR"
 git branch -D "$BRANCH" 2>/dev/null || true
 ```
 
-Mention that `/retro-note` can capture feedback.
+Mention that `/forge:retro-note` can capture feedback.
 
 ## Context Files to Read
 
@@ -260,7 +260,7 @@ Mention that `/retro-note` can capture feedback.
 ### Mode A: Uncommitted Changes
 
 ```
-User: /reviewable
+User: /forge:reviewable
 Agent: Analyzing git status...
        Found 12 modified files with uncommitted changes.
        Mode A: organizing uncommitted changes.
@@ -291,7 +291,7 @@ Agent: [spawns Commit Builder]
 ### Mode B: PR Restructuring
 
 ```
-User: /reviewable 3957
+User: /forge:reviewable 3957
 Agent: Fetching PR #3957...
        "Refactor manifest system" — 18 commits
        Mode B: restructuring commit range.

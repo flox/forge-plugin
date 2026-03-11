@@ -1,4 +1,4 @@
-# /requirements
+# /forge:requirements
 
 Run the requirements phase for a slice.
 
@@ -18,7 +18,7 @@ agent in approach mode for lightweight design exploration.
 Run lightweight design exploration to populate the
 Approach section during requirements phase.
 
-**Usage:** `/requirements approach`
+**Usage:** `/forge:requirements approach`
 
 **When to use:**
 - During requirements phase
@@ -144,7 +144,7 @@ After requirements are accepted, ask:
 > "Would you like to include an approach section?"
 > 1. Skip — leave blank, proceed to review
 > 2. Manual — you'll write the approach yourself
-> 3. Collaborative — use `/requirements approach`
+> 3. Collaborative — use `/forge:requirements approach`
 
 ### Step 3b: Approach Mode (for `approach` subcommand)
 
@@ -157,8 +157,8 @@ After requirements are accepted, ask:
 
 If prerequisites not met:
 > "Requirements basics not yet captured. Please run
-> `/requirements` first, then run
-> `/requirements approach` for the Approach
+> `/forge:requirements` first, then run
+> `/forge:requirements approach` for the Approach
 > section."
 
 **Spawn Designer agent in approach mode:**
@@ -196,7 +196,7 @@ refers to the worktree location, not the main branch.
 
 ### Effort-Sourced
 ```
-User: /requirements
+User: /forge:requirements
 
 Agent: Working on `.forge-context/slices/202601-cuda-build/`.
        This slice came from effort: CUDA Ecosystem.
@@ -212,12 +212,12 @@ Agent: Working on `.forge-context/slices/202601-cuda-build/`.
 
 User: looks good
 
-Agent: Requirements consolidated. Ready for: /design
+Agent: Requirements consolidated. Ready for: /forge:design
 ```
 
 ### From-Scratch
 ```
-User: /requirements
+User: /forge:requirements
 
 Agent: Working on `.forge-context/slices/202601-better-errors/`.
        Starting requirements from scratch.
@@ -237,5 +237,5 @@ User: Better error messages for package conflicts.
       understand what went wrong and how to fix it.
 
 Agent: Requirements captured.
-       Ready for: /design
+       Ready for: /forge:design
 ```

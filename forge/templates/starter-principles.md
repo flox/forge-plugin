@@ -1,7 +1,7 @@
 # Engineering Principles
 
 > Starter principles — edit, remove, or add your own.
-> Run `/retro-note` to capture refinements as
+> Run `/forge:retro-note` to capture refinements as
 > you work.
 
 ## KISS: Keep it simple

@@ -1,4 +1,4 @@
-# /phase-complete
+# /forge:phase-complete
 
 Complete the current phase by capturing a review summary
 before merge.
@@ -91,7 +91,7 @@ Display the subagent's output:
 ## Example Interaction
 
 ```
-User: /phase-complete
+User: /forge:phase-complete
 
 Agent: Working on **CUDA Build Support**,
        requirements phase.
@@ -120,13 +120,13 @@ Changes during review: 2
 Review summary created: reviews/requirements-review.md
 
 The PR is ready to merge. After merging:
-- Run `/design` to start the design phase
+- Run `/forge:design` to start the design phase
 ```
 
 ## With PR Number
 
 ```
-User: /phase-complete 55
+User: /forge:phase-complete 55
 
 Agent: Capturing review for PR #55...
        [spawns Phase Completer]

@@ -1,4 +1,4 @@
-# /design
+# /forge:design
 
 Run the design phase for a slice with approved requirements.
 
@@ -58,7 +58,7 @@ completion. If requirements phase not complete:
 
 > "Requirements phase is not yet complete."
 > "Please complete requirements first with
-> `/requirements` or mark as complete."
+> `/forge:requirements` or mark as complete."
 > "Continue anyway? (yes/no)"
 
 ### Step 2.7: Detect Design State and Route
@@ -210,7 +210,7 @@ After design-reviewer completes, read the result:
 
 **If option 2 or 3:**
 Proceed with next steps. Remind user they can run
-design-reviewer later via `/work review`.
+design-reviewer later via `/forge:work review`.
 
 ## Context Files to Read
 
@@ -224,7 +224,7 @@ refers to the worktree location, not the main branch.
 
 ### Fresh Start (no design artifacts)
 ```
-User: /design
+User: /forge:design
 
 Agent: Working on **CUDA Build Support**.
        Requirements phase is complete.
@@ -261,7 +261,7 @@ Agent: Design complete for CUDA Build Support:
 
 ### Resuming (approach already done)
 ```
-User: /design
+User: /forge:design
 
 Agent: Working on **CUDA Build Support**.
        Design approach exists. Ready for full design.

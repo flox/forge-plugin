@@ -32,7 +32,7 @@ deliverables.
 
 ### Phase 1: Requirements
 
-**Command:** `/requirements`
+**Command:** `/forge:requirements`
 
 **Actions:**
 - Define what you're building
@@ -52,7 +52,7 @@ deliverables.
 
 ### Phase 2: Design
 
-**Command:** `/design`
+**Command:** `/forge:design`
 
 **Actions:**
 - Design architecture
@@ -73,7 +73,7 @@ deliverables.
 
 ### Phase 3: Implementation
 
-**Command:** `/start-task`
+**Command:** `/forge:start-task`
 
 **Actions:**
 - Create tickets from task breakdown
@@ -89,7 +89,7 @@ deliverables.
 
 ### Phase 4: Completion
 
-**Command:** `/phase-complete`
+**Command:** `/forge:phase-complete`
 
 **Actions:**
 - Verify all tasks complete
@@ -165,33 +165,33 @@ phase begins.
 ### Standalone Slice (No Effort)
 
 ```
-1. /work new
-2. /requirements
-3. /design
-4. /start-task (per task)
-5. /phase-complete
+1. /forge:work new
+2. /forge:requirements
+3. /forge:design
+4. /forge:start-task (per task)
+5. /forge:phase-complete
 ```
 
 ### Slice from Effort
 
 ```
-1. /work new (from effort candidate)
-2. /requirements (refine from effort)
-3. /design
-4. /start-task (per task)
-5. /phase-complete
+1. /forge:work new (from effort candidate)
+2. /forge:requirements (refine from effort)
+3. /forge:design
+4. /forge:start-task (per task)
+5. /forge:phase-complete
 ```
 
 ## Integration with Forge Workflows
 
 ### Slice Commands
 
-- `/work new` — Initialize slice
-- `/requirements` — Requirements phase
-- `/design` — Design phase
-- `/start-task` — Implement task
-- `/phase-complete` — Complete phase
-- `/process-pr-discussions` — Process PR feedback
+- `/forge:work new` — Initialize slice
+- `/forge:requirements` — Requirements phase
+- `/forge:design` — Design phase
+- `/forge:start-task` — Implement task
+- `/forge:phase-complete` — Complete phase
+- `/forge:process-pr-discussions` — Process PR feedback
 
 ### Agents
 
@@ -205,10 +205,10 @@ phase begins.
 
 | Phase | Command | Output | Review |
 |-------|---------|--------|--------|
-| **Requirements** | `/requirements` | requirements.md | Approval |
-| **Design** | `/design` | design.md, tasks.md | Approval |
-| **Implementation** | `/start-task` | Code PRs | Per-task |
-| **Complete** | `/phase-complete` | Phase PR | Approval |
+| **Requirements** | `/forge:requirements` | requirements.md | Approval |
+| **Design** | `/forge:design` | design.md, tasks.md | Approval |
+| **Implementation** | `/forge:start-task` | Code PRs | Per-task |
+| **Complete** | `/forge:phase-complete` | Phase PR | Approval |
 
 **Key principles:**
 - Phase gates (approval before next phase)

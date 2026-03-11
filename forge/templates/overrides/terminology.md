@@ -1,8 +1,8 @@
 # Terminology
 
 Your team's names for Forge planning concepts.
-Capture changes via `/retro-note` and apply
-with `/improve`, or edit this file directly.
+Capture changes via `/forge:retro-note` and apply
+with `/forge:improve`, or edit this file directly.
 
 | Forge Term | What It Means | Your Term |
 |------------|---------------|-----------|
