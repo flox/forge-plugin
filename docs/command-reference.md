@@ -34,7 +34,6 @@ slice candidates.
 
 **Subcommands:**
 - `new` — Create a new effort
-- `score` — Calculate or update the RICE score
 
 **Run when:** Exploring a problem before committing
 to a solution.
@@ -103,7 +102,8 @@ Restructure commits into atomic, reviewable units.
 
 Takes a messy commit history and reorganizes it into
 logical, well-described commits that tell a coherent
-story.
+story. Includes suggested human review depth per
+commit (skim, read, or verify).
 
 ---
 
@@ -150,7 +150,8 @@ debugging, verification before complete).
 
 ### `/forge-retro-note`
 
-Capture a process observation.
+Capture a process observation without interrupting
+your current workflow.
 
 Records a correction, gap, or improvement idea to
 a retro notes file. Applied later by `/forge-improve`.
