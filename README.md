@@ -81,6 +81,8 @@ Start a delivery slice once you know what to build.
 
 ## Documentation
 
+- [Why Forge](docs/why-forge.md) — The problems Forge solves
+  and how it's different
 - [Getting Started](docs/getting-started.md) — Installation
   walkthrough and first effort/slice
 - [Workflow Overview](docs/workflow-overview.md) — How efforts
