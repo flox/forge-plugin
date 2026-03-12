@@ -127,3 +127,5 @@ agents, and skills.
 ## License
 
 Apache 2.0. See [LICENSE](LICENSE).
+
+<a href="https://github.com/flox/forge-plugin"><img src="https://static.scarf.sh/a.png?x-pxid=dbe629ad-c2e2-45bb-8d36-cb92a275d50c" referrerpolicy="no-referrer-when-downgrade" alt="" width="0" height="0" /></a>
