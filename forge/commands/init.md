@@ -535,8 +535,8 @@ command -v flox >/dev/null 2>&1
 >
 > 1. Install Flox: https://flox.dev/get
 > 2. Install the Flox plugin for Claude Code:
->    `claude plugin marketplace add flox/flox-agentic`
->    `claude plugin install flox`
+>    `claude plugin marketplace add flox/flox-skills`
+>    `claude plugin install flox@flox-skills`
 >
 > After installing, you can create a Flox environment
 > anytime by running `flox init` in your project
@@ -591,8 +591,8 @@ After creation, confirm:
 >
 > For advanced Flox features (services, builds,
 > containers, CUDA), install the full Flox plugin:
-> `claude plugin marketplace add flox/flox-agentic`
-> `claude plugin install flox`"
+> `claude plugin marketplace add flox/flox-skills`
+> `claude plugin install flox@flox-skills`"
 
 The `.flox/` directory will be included in the commit
 in Step 11.
