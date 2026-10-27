@@ -178,12 +178,11 @@ curl.pkg-path = "curl"
 
 ## For More
 
-The full Flox plugin (`claude plugin install flox`)
-provides additional skills:
+The full Flox plugin
+(`claude plugin marketplace add flox/flox-skills`, then
+`claude plugin install flox@flox-skills`) provides:
 
-- **flox-services** — Background processes and databases
-- **flox-builds** — Reproducible package builds
-- **flox-containers** — Docker/OCI image creation
-- **flox-cuda** — GPU/CUDA development
-- **flox-sharing** — Environment composition and layering
-- **flox-publish** — Package distribution
+- **flox** — Services, builds, containers, CUDA,
+  layering, and publishing
+- **floxify** — Onboard an existing repo to Flox
+- **flox-debug** — Diagnose catalog resolution problems
